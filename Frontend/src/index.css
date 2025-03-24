@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --color-Crimson: #E2011B;
+  --color-gray-mono: #1A1A1A;
+  --color-gray-di: #404040;
+  --color-gray-tri: #5E5353;
+  --color-gray-tetra: #897D7D;
+  --color-gray-penta: #BFB6B6;
+  --color-gray-hexa: #E0E0E0;
+  --color-gray-hepta: #D9D9D9;
+  --color-gray-octa: #F3F4F6;
+
+  --font-basic: "Fredoka", sans-serif;
+}
+body{
+  font-family: var(--font-basic);
+  background-color: var(--color-gray-octa);
+}
+.hero-section{
+  background-image: url("./assets/hero.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    position: fixed;
+    height: 40vh;
+    right: 0;
+    left: 0;
+    top: -100%;
+    z-index: 1000;
+    margin:0 50px;
+    font-weight: 500;
+    transition: top 0.6s;
+    background-color: white;
+    box-shadow: 0px 1px 0px 1px rgb(177, 177, 177);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .nav.active-nav {
+    top: 85px;
+    }
+}
