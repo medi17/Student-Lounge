@@ -24,6 +24,10 @@ body{
   background-repeat: no-repeat;
   background-position: center;
 }
+.nav a.active{
+  color: var(--color-Crimson);
+  font-weight: 500;
+}
 @media (max-width: 768px) {
   .nav {
     display: flex;
@@ -47,5 +51,19 @@ body{
 
   .nav.active-nav {
     top: 85px;
-    }
+  }
+}
+.scroll::-webkit-scrollbar{
+  display: none;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.hero {
+  animation: fadeIn 2s ease-in-out;
 }
