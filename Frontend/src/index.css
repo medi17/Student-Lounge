@@ -67,3 +67,9 @@ body{
 .hero {
   animation: fadeIn 2s ease-in-out;
 }
+.about{
+  background-image: url("./assets/bg-21.avif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
