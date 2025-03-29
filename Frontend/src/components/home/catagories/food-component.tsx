@@ -1,7 +1,16 @@
-import { JSX } from "react"
+import { JSX, useContext } from "react"
 import { FoodItem } from "../../../types/types"
+import { MenuContext } from "../../../context/MenuContext"
 
-const foodComponent = ({ name, image, description, duration, price }: FoodItem): JSX.Element => {
+const foodComponent = ({ id, name, image, description, duration, price }: FoodItem): JSX.Element => {
+
+     const menuContext = useContext(MenuContext);
+
+     if (!menuContext) {
+          throw new Error("MenuContext is not provided");
+     }
+
+     const { addToCart } = menuContext;
 
      return (
           <div className="bg-white shadow-2xl rounded-[30px] text-center min-w-[260px] md:min-w-[312px]">
@@ -17,7 +26,9 @@ const foodComponent = ({ name, image, description, duration, price }: FoodItem):
                               <p>|</p>
                          </div>
                     </div>
-                    <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium">
+                    <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium"
+                    
+                         onClick = {() => addToCart(id)}>
                          Add to cart</button>
                </div>
           </div>
@@ -25,19 +36,3 @@ const foodComponent = ({ name, image, description, duration, price }: FoodItem):
 }
 
 export default foodComponent
-
-// import { JSX, useReducer, useEffect } from "react"
-// import FoodComponent from "../components/shared/food-component"
-// import { IntialState } from "../hooks/UseReducer"
-// import reducer from "../hooks/UseReducer"
-// // import { FoodProps } from "../types/types"
-// import { getAll } from "../services/foodServices"
-
-// <FoodComponent foods = {foods}/>
-
-     // const [state, dispatch] = useReducer(reducer, IntialState)
-     // const { foods } = state
-
-     // useEffect(() => {
-     //      getAll().then((foods) => dispatch({type: 'Foods_Loaded', payload: { foods }}))
-     // }, [])
