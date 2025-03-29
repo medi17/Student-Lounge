@@ -15,7 +15,7 @@ const streetfoods = () => {
      }
 
      return (
-          <div className="scroll bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-10 py-5">
+          <div className="scroll bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-3 py-5 md:px-10">
                {
                     streetFoodItems.map((item:FoodItem, index:number) => {
                          return (
