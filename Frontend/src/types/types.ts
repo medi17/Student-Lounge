@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react"
 
 export type FoodItem = {
   id: string,
@@ -7,18 +6,29 @@ export type FoodItem = {
   description: string,
   price: string,
   image: string,
+  catagory: string,
 }
 
 export type FoodProps = {
-  foods: FoodItem[]
+  food: FoodItem
 }
 
 export type MenuContextType = {
   foodItems: FoodItem[],
-  streetFoodItems: FoodItem[],
-  drinkItems: FoodItem[],
   addToCart: (itemsId: string) => void,
   removeFromCart: (itemsId: string) => void,
   cartItems: Record<string, number>,
   setCartItems: React.Dispatch<React.SetStateAction<Record<string, number>>>,
+}
+export type StateType = {
+  food: FoodItem [],
+}
+export type ActionType = {
+  type: string,
+  payload: FoodItem
+}
+
+export type CartContextType = {
+  cart: StateType,
+  dispatch: React.ActionDispatch<[action: ActionType]>
 }
