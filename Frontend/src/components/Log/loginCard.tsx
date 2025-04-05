@@ -28,7 +28,7 @@ const login = ():JSX.Element => {
                          <button className="bg-Crimson text-white font-medium py-2 px-4 rounded-3xl cursor-pointer hover:bg-red-500"
                          
                          >
-                              {isRegistered? "Log in":"Sign Up"}</button>
+                              {isRegistered? "Log in":"Sign up"}</button>
                     </div>
                     <p className="text-center py-2 text-sm">{isRegistered? "Don't have an account?":"Already have an account?"}
                          <span className="text-Crimson underline hover:no-underline cursor-pointer"
