@@ -1,16 +1,26 @@
 import { JSX, useContext } from "react"
-import { FoodItem } from "../../../types/types"
-import { MenuContext } from "../../../context/MenuContext"
+import { FoodProps } from "../../../types/types"
+// import { MenuContext } from "../../../context/MenuContext"
+import { CartContext } from "../../../context/CartContext"
 
-const foodComponent = ({ id, name, image, description, duration, price }: FoodItem): JSX.Element => {
+const foodComponent = ({ food }: FoodProps): JSX.Element => {
+     const { image, name, duration, description, price } = food;
 
-     const menuContext = useContext(MenuContext);
+     // const menuContext = useContext(MenuContext);
 
-     if (!menuContext) {
-          throw new Error("MenuContext is not provided");
+     // if (!menuContext) {
+     //      throw new Error("MenuContext is not provided");
+     // }
+
+     // const { addToCart } = menuContext;
+
+     const cartContext = useContext(CartContext);
+
+     if (!cartContext) {
+          throw new Error("CartContext is not provided");
      }
 
-     const { addToCart } = menuContext;
+     const dispatch = cartContext?.dispatch;
 
      return (
           <div className="bg-white shadow-2xl rounded-[30px] text-center min-w-[260px] md:min-w-[312px]">
@@ -28,7 +38,7 @@ const foodComponent = ({ id, name, image, description, duration, price }: FoodIt
                     </div>
                     <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium"
                     
-                         onClick = {() => addToCart(id)}>
+                         onClick = {() => dispatch({ type: "Add", payload: food })}>
                          Add to cart</button>
                </div>
           </div>
