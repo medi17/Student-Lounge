@@ -32,6 +32,15 @@ const cartReducer = (state: CartStateType, action:ReducerAction):CartStateType =
                     })
                }
           case "Decrease":
+               return {
+                    ...state,
+                    cart: state.cart.map((food: CartItemType) => {
+                         if (action.payload && food.id === action.payload.id) {
+                              return { ...food, quantity: food.quantity - 1 }
+                         }
+                         return food
+                    })
+               }
           default:
                return state
      }
