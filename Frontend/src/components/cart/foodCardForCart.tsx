@@ -11,7 +11,7 @@ const foodCardForCart = ({food}: FoodProps) => {
      const cart = cartContext?.cart.cart || []
      const dispatch = cartContext?.dispatch
 
-     const Increase = (id: number)=> {
+     const Increase = ()=> {
           if (dispatch) {
                dispatch({type: "Increase", payload: food})
           }
@@ -39,7 +39,7 @@ const foodCardForCart = ({food}: FoodProps) => {
                               >-</button>
                               <p className="text-2xl font-medium">{quantity}</p>
                               <button className="bg-Crimson text-white font-medium text-xl px-2 border-2 border-Crimson rounded-xl hover:text-Crimson hover:bg-white cursor-pointer"
-                                   onClick={() => Increase(id)}
+                                   onClick={() => Increase()}
                               >+</button>
                          </div>
                     </div>
