@@ -1,7 +1,8 @@
-import { JSX, useState } from "react"
+import { JSX, useState, useContext} from "react"
 import { NavLink } from 'react-router-dom'
 import { faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { CartContext } from "../../context/CartContext"
 
 const header = ():JSX.Element => {
      
@@ -11,9 +12,19 @@ const header = ():JSX.Element => {
           setToggleState(!toggleState);
      }
 
+     const cartContext = useContext(CartContext);
+
+     if (!cartContext) {
+          throw new Error("CartContext is not provided");
+     }
+
+     const cart = cartContext?.cart;
+
      return (
-          <div className="flex justify-between items-center m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] lg:mx-16">
-               <h1 className="text-[24px] font-semibold text-Crimson">LOUNGE</h1>
+          <div className="flex justify-between items-center sticky top-0 m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] lg:mx-16">
+               <NavLink to="/">
+                    <h1 className="text-[24px] font-semibold text-Crimson">LOUNGE</h1>
+               </NavLink>
                <ul className={toggleState ?"nav active-nav flex justify-between items-center gap-8 text-[20px]" : "nav flex justify-between items-center gap-8 text-[20px]"} >
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/menu">Menu</NavLink></li>
@@ -24,6 +35,7 @@ const header = ():JSX.Element => {
                     <NavLink to="/Cart">
                          <FontAwesomeIcon icon={faCartShopping} className="text-[20px] cursor-pointer"/>
                     </NavLink>
+                    <p className="font-medium text-xl">cart {cart.cart.length}</p>
                     <div className="hidden md:block">
                          <NavLink to="/Login">
                               <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
