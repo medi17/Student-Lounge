@@ -1,18 +1,9 @@
 import { JSX, useContext } from "react"
 import { FoodProps } from "../../../types/types"
-// import { MenuContext } from "../../../context/MenuContext"
 import { CartContext } from "../../../context/CartContext"
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
      const { image, name, duration, description, price } = food;
-
-     // const menuContext = useContext(MenuContext);
-
-     // if (!menuContext) {
-     //      throw new Error("MenuContext is not provided");
-     // }
-
-     // const { addToCart } = menuContext;
 
      const cartContext = useContext(CartContext);
 
@@ -37,7 +28,6 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
                          </div>
                     </div>
                     <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium"
-                    
                          onClick = {() => dispatch({ type: "Add", payload: food })}>
                          Add to cart</button>
                </div>
