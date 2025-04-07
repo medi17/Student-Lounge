@@ -17,18 +17,9 @@ const drinks = () => {
      return (
           <div className="scroll bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-3 py-5 md:px-10">
                {
-                    drinkItems.map((item: FoodItem, index: number) => (                         
-                         item.catagory === "drink" && (     
-                              < FoodComponent food = {item}
-                                   // key = { index }
-                                   // id = { item.id }
-                                   // name = { item.name }
-                                   // duration = { item.duration }
-                                   // description = { item.description }
-                                   // price = { item.price }
-                                   // image={item.image}
-                                   // catagory={item.catagory}
-                              />
+                    drinkItems.map((fooditem: FoodItem) => (                         
+                         fooditem.catagory === "drink" && (     
+                              < FoodComponent food = { fooditem }/>
                          )
                     
                     ))
