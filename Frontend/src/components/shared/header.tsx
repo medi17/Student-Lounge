@@ -33,9 +33,11 @@ const header = ():JSX.Element => {
                <div className="flex justify-center items-center gap-4">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[20px] cursor-pointer" />
                     <NavLink to="/Cart">
-                         <FontAwesomeIcon icon={faCartShopping} className="text-[20px] cursor-pointer"/>
+                         <div className=" flex relative items-center cursor-pointer">
+                              <FontAwesomeIcon icon={faCartShopping} className="text-[20px] cursor-pointer"/>
+                              <p className="font-medium text-l text-Crimson absolute -top-4 left-5">{cart.cart.length}</p>
+                         </div>
                     </NavLink>
-                    <p className="font-medium text-xl">cart {cart.cart.length}</p>
                     <div className="hidden md:block">
                          <NavLink to="/Login">
                               <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
