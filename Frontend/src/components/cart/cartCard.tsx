@@ -1,0 +1,31 @@
+import FoodCardForCart from "./foodCardForCart"
+import { useContext } from "react"
+import { CartItemType } from "../../types/types"
+import { CartContext } from "../../context/CartContext"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeartCrack } from "@fortawesome/free-solid-svg-icons"
+
+const cartCard = () => {
+
+     const cart = useContext(CartContext)
+     const cartItems = cart?.cart.cart || []
+
+     return (
+          <div className="bg-white shadow-2xl rounded-[30px] py-3 px-3 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16">
+               <h1 className="text-2xl font-medium">My Orders</h1>
+               {
+                    cartItems.length === 0 ? (
+                         <div className="my-18 text-4xl font-medium">There is no food items in your cart<FontAwesomeIcon icon={faHeartCrack} className="text-red-600 text-3xl" /></div>
+                    ) : (
+                         
+                         cartItems.map((food: CartItemType) => (
+                              <FoodCardForCart food={food} key={food.id}></FoodCardForCart>
+                         ))
+                         
+                    )
+               }
+          </div>
+     )
+}
+
+export default cartCard
