@@ -13,14 +13,10 @@ const cartReducer = (state: CartStateType, action:ReducerAction):CartStateType =
                     cart: [...state.cart, action.payload] as CartItemType[]
                }
           case "Remove":
-               // return {
-               //      ...state,
-
-               //      cart: state.cart.filter((food: CartItemType) => (
-               //           if(food.id !== action.payload.id)
-               //      ) 
-               //      )
-               // }
+               return {
+                    ...state,
+                    cart: state.cart.filter((food: CartItemType) => food.id !== action.payload?.id)
+               }
           case "Increase":
                return {
                     ...state,
