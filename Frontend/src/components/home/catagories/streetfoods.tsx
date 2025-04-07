@@ -17,18 +17,9 @@ const streetfoods = () => {
      return (
           <div className="scroll bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-3 py-5 md:px-10">
                {
-                    streetFoodItems.map((item: FoodItem, index: number) => (                         
-                         item.catagory === "street" && (     
-                              < FoodComponent
-                                   key = { index }
-                                   id = { item.id }
-                                   name = { item.name }
-                                   duration = { item.duration }
-                                   description = { item.description }
-                                   price = { item.price }
-                                   image={item.image}
-                                   catagory={item.catagory}
-                              />
+                    streetFoodItems.map((fooditem: FoodItem) => (                         
+                         fooditem.catagory === "street" && (     
+                              < FoodComponent food = { fooditem }/>
                          ) 
                     
                     ))
