@@ -1,34 +1,49 @@
 
 export type FoodItem = {
-  id: string,
+  id: number,
   name: string,
   duration: string,
   description: string,
   price: string,
   image: string,
   catagory: string,
+  quantity:number,
 }
 
 export type FoodProps = {
-  food: FoodItem
-}
-
-export type MenuContextType = {
-  foodItems: FoodItem[],
-  addToCart: (itemsId: string) => void,
-  removeFromCart: (itemsId: string) => void,
-  cartItems: Record<string, number>,
-  setCartItems: React.Dispatch<React.SetStateAction<Record<string, number>>>,
-}
-export type StateType = {
-  food: FoodItem [],
-}
-export type ActionType = {
-  type: string,
-  payload: FoodItem
+  food: FoodItem,
 }
 
 export type CartContextType = {
-  cart: StateType,
-  dispatch: React.ActionDispatch<[action: ActionType]>
+  cart: CartStateType,
+  dispatch: React.ActionDispatch<[action: ReducerAction]>
+}
+
+export type CartItemType = {
+  id: number,
+  name: string,
+  duration: string,
+  description: string,
+  price: string,
+  image: string,
+  catagory: string,
+  quantity:number,
+}
+
+export type CartStateType = {
+  cart: CartItemType[]
+}
+
+const Reducer_action_type = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  INCREASE: "INCREASE",
+  DECREASE: "DECREASE",
+}
+
+export type ReducerActionType = typeof Reducer_action_type
+
+export type ReducerAction = {
+  type: string,
+  payload?: CartItemType
 }
