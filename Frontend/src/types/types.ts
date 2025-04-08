@@ -17,6 +17,7 @@ export type FoodProps = {
 export type CartContextType = {
   cart: CartStateType,
   dispatch: React.ActionDispatch<[action: ReducerAction]>
+  foodItems: FoodItem[]
 }
 
 export type CartItemType = {
