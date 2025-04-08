@@ -3,15 +3,25 @@ import { FoodProps } from "../../../types/types"
 import { CartContext } from "../../../context/CartContext"
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
-     const { image, name, duration, description, price } = food;
+     const {id, image, name, duration, description, price } = food;
 
      const cartContext = useContext(CartContext);
 
      if (!cartContext) {
           throw new Error("CartContext is not provided");
      }
-
+     const cart = cartContext?.cart.cart || []
      const dispatch = cartContext?.dispatch;
+
+     const Add = (id: number) => {
+
+          if (cart.find(foodItem => foodItem.id === id)) {
+               return;
+          } else {
+               dispatch({ type: "Add", payload: food })
+          }
+  
+     }
 
      return (
           <div className="bg-white shadow-2xl rounded-[30px] text-center min-w-[260px] md:min-w-[312px]">
@@ -28,7 +38,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
                          </div>
                     </div>
                     <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium"
-                         onClick = {() => dispatch({ type: "Add", payload: food })}>
+                         onClick = {() => Add(id)}>
                          Add to cart</button>
                </div>
           </div>
