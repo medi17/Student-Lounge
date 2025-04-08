@@ -11,7 +11,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
           throw new Error("CartContext is not provided");
      }
      const cart = cartContext?.cart.cart || []
-     const dispatch = cartContext?.dispatch;
+     const dispatch = cartContext?.dispatch
 
      const Add = (id: number) => {
 
