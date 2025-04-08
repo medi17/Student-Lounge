@@ -2,12 +2,12 @@ import FoodComponent from "./food-component"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFaceSadTear } from "@fortawesome/free-solid-svg-icons"
 import { useContext } from "react"
-import { MenuContext } from "../../../context/MenuContext"
 import { FoodItem } from "../../../types/types"
+import { CartContext } from "../../../context/CartContext"
 
 const streetfoods = () => {
 
-     const FoodListObject = useContext(MenuContext)
+     const FoodListObject = useContext(CartContext)
      const streetFoodItems = FoodListObject?.foodItems || []
 
      if (!streetFoodItems) {
@@ -19,7 +19,7 @@ const streetfoods = () => {
                {
                     streetFoodItems.map((fooditem: FoodItem) => (                         
                          fooditem.catagory === "street" && (     
-                              < FoodComponent food = { fooditem }/>
+                              < FoodComponent food = { fooditem } key={fooditem.id}/>
                          ) 
                     
                     ))
