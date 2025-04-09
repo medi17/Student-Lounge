@@ -1,3 +1,10 @@
+// // General Context types
+
+export type ChildrenType = {
+  children: React.ReactNode
+}
+
+// // CartContext types
 
 export type FoodItem = {
   id: number,
@@ -47,4 +54,11 @@ export type ReducerActionType = typeof Reducer_action_type
 export type ReducerAction = {
   type: string,
   payload: CartItemType 
+}
+
+// // Order Context types
+
+export type OrderContextType ={
+  isChecked: string, 
+  setIsChecked: React.Dispatch<React.SetStateAction<string>>
 }
