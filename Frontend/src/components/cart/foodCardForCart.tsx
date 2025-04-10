@@ -5,7 +5,7 @@ import { FoodProps } from "../../types/types"
 import { CartContext } from "../../context/CartContext"
 
 const foodCardForCart = ({food}: FoodProps) => {
-     const  { id, name, image, price, quantity } = food
+     const  { id, name, image, description, price, quantity } = food
      
      const cartContext = useContext(CartContext)
 
@@ -37,7 +37,7 @@ const foodCardForCart = ({food}: FoodProps) => {
                </div>
                <div>
                     <h2 className="text-xl font-medium">{name}</h2>
-                    <p className="text-xs">Potato stew, simmered with aromatic spices...</p>
+                    <p className="text-xs">{description}</p>
                     <div className="flex justify-between items-center gap-3 mt-2">
                          <h3 className="font-medium text-Crimson">{price} ETB</h3>
                          <div className="flex justify-between items-center gap-2 mb-2">
