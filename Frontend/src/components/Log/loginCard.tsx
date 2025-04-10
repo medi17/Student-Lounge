@@ -6,7 +6,7 @@ const login = ():JSX.Element => {
      return (
           <div className="flex justify-center items-center bg-white mx-6 rounded-[30px] shadow-sm md:mx-16 md:p-5 md:h-[450px]">
                <div className='w-[950px] h-full rounded-[30px] hidden md:block'>
-                    <img src={Log}  className='w-full h-full rounded-l-[30px] '/>
+                    <img src={Log}  className='hero w-full h-full rounded-l-[30px] '/>
                </div>
                <div className='w-[450px] md:w-full px-6 py-12'>
                     <h1 className="text-center text-5xl font-medium py-5">{isRegistered? "Log in": "Sign up"}</h1>
