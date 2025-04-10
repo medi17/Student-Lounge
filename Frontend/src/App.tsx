@@ -1,5 +1,5 @@
 import Home from "./pages/home"
-import Menu from "./pages/menu"
+import Profile from "./pages/profile"
 import Contact from "./pages/contact"
 import Cart from "./pages/cart"
 import Login from "./pages/login"
@@ -11,12 +11,12 @@ const App = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/menu',
-    element: <Menu />
-  },
-  {
     path: '/contact',
     element: <Contact />
+  },
+  {
+    path: '/profile',
+    element: <Profile />
   },
   {
     path: '/cart',
