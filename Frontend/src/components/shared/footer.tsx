@@ -23,7 +23,7 @@ const footer = () => {
                     </div>
                     <div className="mt-5 md:text-lg md:mt-0">
                          <h3>6kilo - AAU, Addis Ababa, Ethiopia</h3>
-                         <h3>sixkilolounge@gmail,com</h3>
+                         <h3>sixkilolounge@gmail.com</h3>
                          <h3>+251-987-654-321</h3>
                     </div>
                </div>
