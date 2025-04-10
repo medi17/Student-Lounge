@@ -6,11 +6,19 @@ import { CartItemType } from "../../types/types";
 const OrderSummary = () => {
 
      const Order = useContext(OrderContext)
+
+     if (!Order) {
+          throw new Error("OrderContext is not provided");
+     }
+
      const isChecked = Order?.isChecked
 
      const cartContext = useContext(CartContext)
-     const cart = cartContext?.cart
 
+     if (!cartContext) {
+          throw new Error("CartContext is not provided");
+     }
+     const cart = cartContext?.cart
      const cartItems = cart?.cart
 
 
