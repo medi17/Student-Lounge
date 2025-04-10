@@ -9,6 +9,10 @@ import Order from "./order"
 const cartCard = () => {
 
      const cart = useContext(CartContext)
+     
+     if (!cart) {
+          throw new Error("CartContext is not provided");
+     }
      const cartItems = cart?.cart.cart || []
 
      return (
