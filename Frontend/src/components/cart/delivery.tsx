@@ -7,13 +7,15 @@ type Props = {
 const delivery = ({setToOrdersummary}:Props) => {
 
      const Order = useContext(OrderContext)
-     const isChecked = Order?.isChecked
-     const setIsChecked = Order?.setIsChecked
-
 
      if (!Order) {
           throw new Error("OrderContext is not provided");
      }
+     
+     const isChecked = Order?.isChecked
+     const setIsChecked = Order?.setIsChecked
+
+
 
      const isSelected = (value: string) => isChecked === value
 
