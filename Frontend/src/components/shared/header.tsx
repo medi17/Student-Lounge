@@ -21,14 +21,14 @@ const header = ():JSX.Element => {
      const cart = cartContext?.cart;
 
      return (
-          <div className="flex justify-between items-center sticky top-0 m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] lg:mx-16">
+          <div className="flex justify-between items-center sticky top-0 m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] z-50 lg:mx-16">
                <NavLink to="/">
                     <h1 className="text-[24px] font-semibold text-Crimson">LOUNGE</h1>
                </NavLink>
                <ul className={toggleState ?"nav active-nav flex justify-between items-center gap-8 text-[20px]" : "nav flex justify-between items-center gap-8 text-[20px]"} >
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
-                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/menu">Menu</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
+                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/profile">Profile</NavLink></li>
                </ul>
                <div className="flex justify-center items-center gap-4">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[20px] cursor-pointer" />
