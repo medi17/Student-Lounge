@@ -25,7 +25,7 @@ const login = ():JSX.Element => {
                               type="password"
                               placeholder={isRegistered? "Your password": "enter your password"}
                          />
-                         <button className="bg-Crimson text-white font-medium py-2 px-4 rounded-3xl cursor-pointer hover:bg-red-500" 
+                         <button className="bg-Crimson text-white font-medium py-2 px-4 rounded-3xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white" 
                          >
                               {isRegistered? "Log in":"Sign up"}</button>
                     </div>
