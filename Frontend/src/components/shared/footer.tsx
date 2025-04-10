@@ -9,14 +9,14 @@ const footer = () => {
           <div className="bg-gray-di text-white mt-8 p-6 pb-3 md:pt-12">
                <div className="md:flex md:justify-between md:mx-16">
                     <div>
-                         <h1 className="text-2xl font-semibold md:text-4xl hover:text-Crimson">LOUNGE</h1>
+                         <h1 className="text-2xl font-semibold md:text-4xl hover:text-Crimson w-[90px]">LOUNGE</h1>
                          <div className="flex gap-2 mt-2 md:mt-4 md:gap-4">
                               <FontAwesomeIcon icon={faInstagram} className="text-xl hover:text-Crimson md:text-3xl"/>
                               <FontAwesomeIcon icon={faFacebook} className="text-xl hover:text-Crimson md:text-3xl"/>
                               <FontAwesomeIcon icon={faWhatsapp} className="text-xl hover:text-Crimson md:text-3xl"/>
                          </div>
                     </div>
-                    <div className="flex flex-col text-base mt-8 md:text-lg md:mt-0">
+                    <div className="flex flex-col text-base mt-8 w-[90px] md:text-lg md:mt-0">
                          <NavLink to="/" className="hover:text-Crimson cursor-pointer">Home</NavLink>
                          <NavLink to="/menu" className="hover:text-Crimson cursor-pointer">Menu</NavLink>
                          <NavLink to="/contact" className="hover:text-Crimson cursor-pointer">Contact Us</NavLink>
