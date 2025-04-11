@@ -8,13 +8,13 @@ const delivery_form = () => {
                <p className="font-light text-sm my-2">Fill the form so we can deliver to you.</p>
                <form>
                     <div className="flex justify-center items-center gap-3">
-                         <input className="bg-gray-hepta py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               type="text"
                               placeholder="First name" />
-                         <input className="bg-gray-hepta py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               type="text"
                               placeholder="Last name" />
-                         <input className="bg-gray-hepta py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               type="text"
                               placeholder="Email address" />
                     </div>
@@ -22,7 +22,7 @@ const delivery_form = () => {
                     
                     <div className="md:grid md:grid-cols-3 md:justify-center  md:place-items-center">
                          
-                         <input className="bg-gray-hepta py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               name="tel"
                               placeholder="Phone number" />
                          <div>
@@ -35,7 +35,7 @@ const delivery_form = () => {
                               </select>
                          </div>
 
-                         <input className="bg-gray-hepta py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               type="text"
                               placeholder="Dorm number" />
                     </div>
