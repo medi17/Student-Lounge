@@ -24,7 +24,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      }
 
      return (
-          <div className="bg-white shadow-xl rounded-[30px] text-center min-w-[260px] border-1 border-gray-300 md:min-w-[312px]">
+          <div className="food-card bg-white shadow-xl rounded-[30px] text-center min-w-[260px] border-1 border-gray-300 md:min-w-[312px]">
                <img className="rounded-t-[30px]"
                     src={image} alt={name} />
                <h2 className="text-[28px] font-medium text-gray-mono">{name}</h2>
