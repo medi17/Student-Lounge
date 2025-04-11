@@ -12,16 +12,16 @@ const login = ():JSX.Element => {
                     <h1 className="text-center text-5xl font-medium py-5">{isRegistered? "Log in": "Sign up"}</h1>
                     <div className="flex flex-col gap-4 px-8 md:px-0 lg:px-24">
                          {isRegistered ? <></> : 
-                              <input className="bg-gray-hepta py-2 px-4 rounded-3xl focus:outline-none"
+                              <input className="bg-gray-hepta text-gray-tri py-2 px-4 rounded-3xl focus:outline-none"
                                    type="email"
                                    placeholder="Doe John"
                               />                         
                          }
-                         <input className="bg-gray-hepta py-2 px-4 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 rounded-3xl focus:outline-none"
                               type="email"
                               placeholder={isRegistered? "Your email": "example@email.com"}
                          />
-                         <input className="bg-gray-hepta py-2 px-4 rounded-3xl focus:outline-none"
+                         <input className="bg-gray-hepta text-gray-tri py-2 px-4 rounded-3xl focus:outline-none"
                               type="password"
                               placeholder={isRegistered? "Your password": "enter your password"}
                          />
