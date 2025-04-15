@@ -24,13 +24,14 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      }
 
      return (
-          <div className="food-card bg-white shadow-xl rounded-[30px] text-center min-w-[260px] border-1 border-gray-300 md:min-w-[312px]">
-               <img className="rounded-t-[30px]"
-                    src={image} alt={name} />
-               <h2 className="text-[28px] font-medium text-gray-mono">{name}</h2>
-               <h4 className="text-sm text-gray-tetra">{duration} min</h4>
-               <p className="text-base font-light px-1">{description}</p>
-               <div className="mt-6 pb-6 text-white self-baseline">
+          <div className="food-card flex flex-col justify-between items-center bg-white shadow-xl rounded-[30px] text-center min-w-[260px] border-1 border-gray-300 md:min-w-[312px]">
+               <div>
+                    <img className="rounded-t-[30px]"src={image} alt={name} />
+                    <h2 className="text-[28px] font-medium text-gray-mono">{name}</h2>
+                    <h4 className="text-sm text-gray-tetra">{duration} min</h4>
+                    <p className="text-base font-light px-1">{description}</p>
+               </div>
+               <div className="flex justify-center items-center w-full mt-6 pb-6 text-white self-baseline">
                     <div className="inline-block py-3 pl-5 bg-Crimson text-white rounded-l-3xl">
                          <div className="flex gap-3">
                               <p>{price} ETB</p>
