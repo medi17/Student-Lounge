@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Medan",
+  "license": "ISC",
+  "description": "An app for food delivery",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
