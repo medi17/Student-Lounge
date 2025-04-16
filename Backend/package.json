@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "node dist/server.js"
   },
   "author": "Medan",
   "license": "ISC",
   "description": "An app for food delivery",
   "dependencies": {
+    "@types/node": "^22.14.1",
     "express": "^5.1.0"
   },
   "devDependencies": {
