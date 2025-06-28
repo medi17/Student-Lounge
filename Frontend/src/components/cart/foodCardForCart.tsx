@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrashCan} from "@fortawesome/free-solid-svg-icons"
 import { FoodProps } from "../../types/foodTypes"
 import { CartContext } from "../../context/CartContext"
+import { UserContext } from "../../context/UserContext"
 
 const foodCardForCart = ({food}: FoodProps) => {
      const  { id, name, image, description, price, quantity } = food
@@ -30,10 +31,17 @@ const foodCardForCart = ({food}: FoodProps) => {
           }
      }
 
+     const userContext = useContext(UserContext);
+
+     if (!userContext) {
+          throw new Error("UserContext is not provided");
+     }
+     const url = userContext.url
+
      return (
           <div className="flex justify-between items-start gap-3 bg-gray-octa shadow-sm rounded-2xl px-2 mt-5 min-w-[250px] max-w-[450px]">
                <div>
-                    <img src={image} alt={name} className="w-[150px] rounded-2xl p-2" />
+                    <img src={url+"/images/"+image} alt={name} className="w-[150px] rounded-2xl p-2" />
                </div>
                <div>
                     <h2 className="text-xl font-medium">{name}</h2>
