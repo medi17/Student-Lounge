@@ -1,6 +1,7 @@
 import { JSX, useContext } from "react"
 import { FoodProps } from "../../../types/foodTypes"
 import { CartContext } from "../../../context/CartContext"
+import { UserContext } from "../../../context/UserContext";
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
      const {id, image, name, duration, description, price } = food;
@@ -10,8 +11,16 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      if (!cartContext) {
           throw new Error("CartContext is not provided");
      }
-     const cart = cartContext?.cart.cart || []
+     const cart = cartContext.cart.cart
      const dispatch = cartContext?.dispatch
+
+     const userContext = useContext(UserContext);
+
+     if (!userContext) {
+          throw new Error("UserContext is not provided");
+     }
+     const url = userContext.url
+
 
      const Add = (id: number) => {
 
@@ -26,7 +35,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      return (
           <div className="food-card flex flex-col justify-between items-center bg-white shadow-xl rounded-[30px] text-center min-w-[260px] border-1 border-gray-300 md:min-w-[312px]">
                <div>
-                    <img className="rounded-t-[30px]"src={image} alt={name} />
+                    <img className="rounded-t-[30px]"src={url+"/images/"+image} alt={name} />
                     <h2 className="text-[28px] font-medium text-gray-mono">{name}</h2>
                     <h4 className="text-sm text-gray-tetra">{duration} min</h4>
                     <p className="text-base font-light px-1">{description}</p>
