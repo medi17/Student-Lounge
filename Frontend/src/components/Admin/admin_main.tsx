@@ -16,17 +16,17 @@ const AdminMain = () => {
                <h1 className='text-[50px] text-Crimson'>Welcome</h1>
                <div className='my-3'>
                     <div className='w-60 md:w-80 flex justify-between '>
-                         <div className={ toggleState === 1 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-1 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
+                         <div className={ toggleState === 1 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-2 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
                                    onClick={() => toggleTab(1)}>
                               Add items
                          </div>
-                         <div className={ toggleState === 2 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-1 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
+                         <div className={ toggleState === 2 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-2 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
                                    onClick={() => toggleTab(2)}>
                               Orders
                          </div>
-                         <div className={ toggleState === 3 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-1 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
+                         <div className={ toggleState === 3 ? "px-4 rounded-xl cursor-pointer active-tabs" : "bg-gray-hexa px-2 md:px-4 rounded-xl font-medium border-2 border-gray-tetra cursor-pointer"}
                                    onClick={() => toggleTab(3)}>
-                              Users
+                              List
                          </div>
                     </div>
 
