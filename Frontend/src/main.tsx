@@ -7,14 +7,17 @@ import './index.css'
 import App from "./App"
 import CartContextProvider from './context/CartContext'
 import OrderContextProvider from './context/OrderContext'
+import { UserContextProvider } from './context/UserContext'
 
 const AppProviders: React.FC<React.PropsWithChildren<{}>> = ({children}) => {
   return (
-    <CartContextProvider>
-      <OrderContextProvider>
-            {children}
-      </OrderContextProvider>
-    </CartContextProvider>
+    <UserContextProvider>
+      <CartContextProvider>
+        <OrderContextProvider>
+              {children}
+        </OrderContextProvider>
+      </CartContextProvider>
+    </UserContextProvider>
   )
 }
 
