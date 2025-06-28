@@ -82,6 +82,13 @@ body{
   animation-fill-mode: forwards;
 }
 
+.profile:hover .profile-dropdown{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-gray-octa);
+}
+
 @keyframes drop {
   0%,
   28% {
