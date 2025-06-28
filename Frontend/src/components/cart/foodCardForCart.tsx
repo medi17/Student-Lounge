@@ -1,7 +1,7 @@
 import { useContext} from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {  faTrashCan} from "@fortawesome/free-solid-svg-icons"
-import { FoodProps } from "../../types/types"
+import { faTrashCan} from "@fortawesome/free-solid-svg-icons"
+import { FoodProps } from "../../types/foodTypes"
 import { CartContext } from "../../context/CartContext"
 
 const foodCardForCart = ({food}: FoodProps) => {

@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { ChildrenType, OrderContextType } from "../types/types"
+import { ChildrenType, OrderContextType } from "../types/foodTypes"
 
 
 export const OrderContext = createContext<OrderContextType | null>(null)

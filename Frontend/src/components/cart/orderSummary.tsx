@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { CartContext } from "../../context/CartContext";
-import { CartItemType } from "../../types/types";
+import { CartItemType } from "../../types/foodTypes";
 
 const OrderSummary = () => {
 

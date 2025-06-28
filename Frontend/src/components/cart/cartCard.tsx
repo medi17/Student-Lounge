@@ -1,6 +1,6 @@
 import FoodCardForCart from "./foodCardForCart"
 import { useContext } from "react"
-import { CartItemType } from "../../types/types"
+import { CartItemType } from "../../types/foodTypes"
 import { CartContext } from "../../context/CartContext"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeartCrack } from "@fortawesome/free-solid-svg-icons"

@@ -2,7 +2,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { toast } from 'react-toastify'
 import { itemListType } from "../../types/admintypes"
-import { data } from "react-router-dom"
 
 type Props = {
      className:string

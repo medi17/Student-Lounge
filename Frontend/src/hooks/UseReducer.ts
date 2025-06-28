@@ -1,4 +1,4 @@
-import { ReducerAction, CartStateType, CartItemType } from "../types/types"
+import { ReducerAction, CartStateType, CartItemType } from "../types/foodTypes"
 
 export const InitialState: CartStateType = {
   cart: []

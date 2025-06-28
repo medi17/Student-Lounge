@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import cartReducer, { InitialState } from "../hooks/UseReducer";
-import { CartContextType, ChildrenType } from "../types/types";
+import { CartContextType, ChildrenType } from "../types/foodTypes";
 import { foodItems } from "../data";
 
 export const CartContext = createContext<CartContextType | null>(null)

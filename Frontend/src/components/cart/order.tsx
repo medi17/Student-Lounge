@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { CartItemType } from "../../types/types"
+import { CartItemType } from "../../types/foodTypes"
 import Delivery from "./delivery"
 import OrderSummary from "./orderSummary"
 

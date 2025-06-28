@@ -1,5 +1,5 @@
 import { JSX, useContext } from "react"
-import { FoodProps } from "../../../types/types"
+import { FoodProps } from "../../../types/foodTypes"
 import { CartContext } from "../../../context/CartContext"
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {

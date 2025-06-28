@@ -2,7 +2,7 @@ import FoodComponent from "./food-component"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFaceSadTear } from "@fortawesome/free-solid-svg-icons"
 import { useContext } from "react"
-import { FoodItem } from "../../../types/types"
+import { FoodItem } from "../../../types/foodTypes"
 import { CartContext } from "../../../context/CartContext"
 
 const streetfoods = () => {
