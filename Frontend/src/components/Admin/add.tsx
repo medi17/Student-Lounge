@@ -66,19 +66,19 @@ const add = ({ className }: Props) => {
                     <div>
                          <div>
                               <h2 className='font-medium'>Food Name</h2>
-                              <input type="text" name='name' placeholder='type food name' required
+                              <input type="text" name='name' value = {state.name} placeholder='type food name' required
                               className='my-2 border-2 bg-gray-hepta text-gray-tri py-1 px-2 rounded-xl focus:outline-none'
                               onChange={handleChange}/>
                          </div>
                          <div>
                               <h2 className='font-medium'>Food Duration</h2>
-                              <input type="text" name='duration' placeholder='type here' required
+                              <input type="text" name='duration' value = {state.duration} placeholder='type here' required
                               className='my-2 border-2 bg-gray-hepta text-gray-tri py-1 px-2 rounded-xl focus:outline-none'
                               onChange={handleChange}/>
                          </div>
                          <div>
                               <h2 className='font-medium'>Food Description</h2>
-                              <textarea name="description" placeholder='write here' rows={2} required
+                              <textarea name="description" value = {state.description} placeholder='write here' rows={2} required
                               className='my-2 border-2 bg-gray-hepta text-gray-tri py-1 px-2 rounded-xl focus:outline-none'
                               onChange={handleChange}></textarea>
                          </div>
@@ -88,7 +88,7 @@ const add = ({ className }: Props) => {
                          <div>
                               <h2 className='font-medium'>Food Catagory</h2>
                               <select onChange={handleChange}
-                                   name="catagory" className="my-2 bg-gray-hepta py-2 px-2 rounded-xl border-2 border-gray-tri focus:outline-none">
+                                   name="catagory" value = {state.catagory} className="my-2 bg-gray-hepta py-2 px-2 rounded-xl border-2 border-gray-tri focus:outline-none">
                                    <option value="Main foods">Main foods</option>
                                    <option value="Street foods">Street foods</option>
                                    <option value="Drinks">Drinks</option>
@@ -96,7 +96,7 @@ const add = ({ className }: Props) => {
                          </div>
                          <div>
                               <h2 className='font-medium'>Food Price</h2>
-                              <input type="Number" name='price' placeholder='$0'
+                              <input type="Number" name='price' value = {state.price} placeholder='$0'
                               className='my-2 border-2 bg-gray-hepta text-gray-tri py-1 px-2 rounded-xl focus:outline-none'
                               onChange={handleChange}/>
                          </div>
