@@ -1,8 +1,10 @@
-import { JSX, useState, useContext} from "react"
-import { NavLink } from 'react-router-dom'
-import { faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { JSX, useState, useContext, ReactNode} from "react"
+import { NavLink, useNavigate } from 'react-router-dom'
+import { faMagnifyingGlass, faCartShopping, faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CartContext } from "../../context/CartContext"
+import { UserContext } from "../../context/UserContext"
+import ProfileImage from "../../assets/Profile_pic.png"
 
 const header = ():JSX.Element => {
      
@@ -20,6 +22,21 @@ const header = ():JSX.Element => {
 
      const cart = cartContext?.cart;
 
+     const userContext = useContext(UserContext)
+          
+     if (!userContext) {
+          throw new Error("UserContext is not provided");
+     }
+     const token = userContext.token
+     const setToken = userContext.setToken
+
+     const navigate = useNavigate();
+     const logOut = () => {
+          localStorage.removeItem("token");
+          setToken("");
+          navigate("/")
+     }
+
      return (
           <div className="flex justify-between items-center sticky top-0 m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] z-50 lg:mx-16">
                <NavLink to="/">
@@ -29,6 +46,7 @@ const header = ():JSX.Element => {
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/profile">Profile</NavLink></li>
+                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/admin">Admin</NavLink></li>
                </ul>
                <div className="flex justify-center items-center gap-4">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[20px] cursor-pointer" />
@@ -39,11 +57,24 @@ const header = ():JSX.Element => {
                          </div>
                     </NavLink>
                     <div className="hidden md:block">
-                         <NavLink to="/Login">
-                              <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
-                                   Login
-                              </button>
-                         </NavLink>
+                         {token ?
+                              <NavLink to="/Login">
+                                   <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
+                                        Login
+                                   </button>
+                              </NavLink>
+                              :
+                              <div className="profile relative">
+                                   <img src={ProfileImage} alt="profile picture" className="w-10 cursor-pointer" />
+                                   <ul className="profile-dropdown hidden absolute right-0 z-40 border-2 border-gray-tri rounded-2xl">
+                                        <li className="flex justify-center items-center font-medium text-lg px-6 pt-2 cursor-pointer hover:text-Crimson">
+                                             <FontAwesomeIcon icon={faBagShopping} className="mr-3" />Orders</li>
+                                        <hr className="border-t-2 border-gray-tri"/>
+                                        <li onClick={logOut} className="flex justify-center items-center font-medium text-lg px-6 pb-2 cursor-pointer hover:text-Crimson">
+                                             <FontAwesomeIcon icon={faBagShopping} className="mr-3" />LogOut</li>
+                                   </ul>
+                              </div>
+                         }
                     </div>
                     <div className= "cursor-pointer flex flex-col items-center p-2 border-3 border-Crimson rounded-[12px] md:hidden" onClick={toggleMenu}>
                          <div className={toggleState ? 'w-6 h-1 rounded-xs bg-Crimson transform translate-y-[8px] rotate-45' : "w-6 h-1 rounded-xs bg-Crimson"} ></div>
