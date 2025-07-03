@@ -1,7 +1,7 @@
 import { RegistrationType, RegisterReducerAction } from "../types/userTypes";
 
 export const InitialState = {
-     name: "",
+     fullName: "",
      email: "",
      password:""
 }

@@ -4,7 +4,7 @@ export const InitialState = {
      name: "",
      duration: "",
      description: "",
-     catagory:"",
+     catagory:"Main",
      price: "",
 }
 
