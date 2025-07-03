@@ -10,6 +10,8 @@ type FormChangeEvent = React.ChangeEvent<FormElement>;
 
 const login = (): JSX.Element => {
 
+     const navigate = useNavigate();
+
      const userContext = useContext(UserContext)
      
      if (!userContext) {
@@ -28,14 +30,14 @@ const login = (): JSX.Element => {
      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault()
           let newUrl = userContext.url
-          const navigate = useNavigate();
           
           if (!isRegistered) {
-               newUrl += "/api/user/login"
-          } else {
                newUrl += "/api/user/register"
+          } else {
+               newUrl += "/api/user/login"
           }
-
+          console.log(newUrl);
+          
           const response = await axios.post(newUrl, state)
 
           if (response.data.success) {
@@ -60,7 +62,7 @@ const login = (): JSX.Element => {
                     <div className="flex flex-col gap-4 px-8 md:px-0 lg:px-24">
                          {isRegistered ? <></> : 
                               <input className="bg-gray-hepta text-gray-tri py-2 px-4 rounded-3xl focus:outline-none"
-                                   name="name" value = {state.name} type="text" 
+                              name="fullName" value = {state.fullName} type="text" 
                                    placeholder="Doe John"
                                    onChange={handleChange}
                               />                         
