@@ -11,7 +11,7 @@ const createToken = (id) => {
 // register user
 
 const registerUser = async (req, res) => { 
-     const { name, password, email } = req.body
+     const { fullName, password, email } = req.body
      
      try {
           const exists = await userModel.findOne({ email })
@@ -29,12 +29,12 @@ const registerUser = async (req, res) => {
           // Hashing the password
 
           const salt = await bcrypt.genSalt(10)
-          const hasedPassword = await bcrypt.hash(password, salt)
+          const hashedPassword = await bcrypt.hash(password, salt)
 
           const newUser = new userModel({
-               name: name,
+               fullName: fullName,
                email: email,
-               password: hasedPassword
+               password: hashedPassword
           })
 
           const user = await newUser.save()
