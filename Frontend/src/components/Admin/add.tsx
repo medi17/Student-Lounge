@@ -44,16 +44,18 @@ const add = ({ className }: Props) => {
           }
           else {
                toast.error(response.data.message)
+               console.log(response.data.message);
+               
           }
      } 
 
      return (
           <div className={className}>
                <form className='my-10  md:flex justify-between' onSubmit={handleSubmit}>
-                    <div className='w-50 text-center'>
+                    <div className='w-50 md:text-center'>
                          <h2 className='font-medium'>Upload Image</h2>
                          <label htmlFor="image">
-                              <img src={image ? URL.createObjectURL(image) : UploadImage} alt="Upload images here" />
+                              <img src={image ? URL.createObjectURL(image) : UploadImage} alt="Upload images here" className="cursor-pointer border-2 border-gray-tetra my-2" />
                          </label>
                          <input
                               onChange={(e) => {
@@ -101,7 +103,7 @@ const add = ({ className }: Props) => {
                               onChange={handleChange}/>
                          </div>
                          <button type='submit'
-                              className='bg-Crimson text-white w-50 md:w-full py-2 px-3 mt-10 font-medium rounded-2xl'
+                              className='bg-Crimson text-white w-50 md:w-full py-2 px-3 mt-10 font-medium rounded-2xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white'
                          >Add item</button>
                     </div>
                </form>
