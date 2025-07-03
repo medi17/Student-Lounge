@@ -142,9 +142,9 @@ body{
 }
 
 tr:first-child th:first-child {
-  border-top-left-radius: 16px;
+  border-top-left-radius: 30px;
 }
 
 tr:first-child th:last-child {
-  border-top-right-radius: 16px;
+  border-top-right-radius: 30px;
 }
