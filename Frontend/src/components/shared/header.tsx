@@ -57,7 +57,7 @@ const header = ():JSX.Element => {
                          </div>
                     </NavLink>
                     <div className="hidden md:block">
-                         {token ?
+                         {!token ?
                               <NavLink to="/Login">
                                    <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
                                         Login
