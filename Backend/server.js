@@ -4,6 +4,7 @@ import { connectDb } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import 'dotenv/config'
+import cartRouter from "./routes/cartRoute.js";
 
 // app config
 const app = express();
@@ -23,6 +24,7 @@ connectDb()
 app.use("/api/food", foodRouter)
 app.use("/images", express.static('uploads'))
 app.use("/api/user", userRouter)
+app.use("/api/cart", cartRouter)
 
 
 app.get("/", function (req, res){
@@ -30,5 +32,5 @@ app.get("/", function (req, res){
 })
 
 app.listen(port, () => {
-	console.log(`now listning on port ${port}`)
+	console.log(`now listening on port ${port}`)
 })
