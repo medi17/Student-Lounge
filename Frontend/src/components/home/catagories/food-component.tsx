@@ -4,7 +4,7 @@ import { CartContext } from "../../../context/CartContext"
 import { UserContext } from "../../../context/UserContext";
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
-     const {id, image, name, duration, description, price } = food;
+     const {_id, image, name, duration, description, price } = food;
 
      const cartContext = useContext(CartContext);
 
@@ -24,7 +24,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
 
      const Add = (id: number) => {
 
-          if (cart.find(foodItem => foodItem.id === id)) {
+          if (cart.find(foodItem => foodItem._id === id)) {
                return;
           } else {
                dispatch({ type: "Add", payload: food })
@@ -37,7 +37,13 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
                <div>
                     <img className="rounded-t-[30px]"src={url+"/images/"+image} alt={name} />
                     <h2 className="text-[28px] font-medium text-gray-mono">{name}</h2>
-                    <h4 className="text-sm text-gray-tetra">{duration} min</h4>
+                    <h4 className="text-sm text-gray-tetra">
+                         {duration === "none" ? (
+                              <></>
+                         ) : (
+                              `${duration} min`
+                         )}
+                    </h4>
                     <p className="text-base font-light px-1">{description}</p>
                </div>
                <div className="flex justify-center items-center w-full mt-6 pb-6 text-white self-baseline">
@@ -48,7 +54,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
                          </div>
                     </div>
                     <button className="cursor-pointer bg-Crimson py-2 pl-2 pr-4 rounded-r-3xl border-y-4 border-r-4 border-Crimson shadow-5xl hover:bg-white hover:text-Crimson hover:font-medium"
-                         onClick = {() => Add(id)}>
+                         onClick = {() => Add(_id)}>
                          Add to cart</button>
                </div>
           </div>
