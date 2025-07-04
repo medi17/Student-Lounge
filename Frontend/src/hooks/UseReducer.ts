@@ -14,14 +14,14 @@ const cartReducer = (state: CartStateType, action:ReducerAction):CartStateType =
           case "Remove":
                return {
                     cart: state.cart.filter((foodItem: CartItemType) => 
-                         foodItem.id !== action.payload.id
+                         foodItem._id !== action.payload._id
                     )
                }
           case "Increase":
                return {
                     ...state,
                     cart: state.cart.map((foodItem: CartItemType) => {
-                         if (foodItem.id === action.payload.id) {
+                         if (foodItem._id === action.payload._id) {
                               return {
                                    ...foodItem, quantity: foodItem.quantity + 1
                               }
@@ -33,7 +33,7 @@ const cartReducer = (state: CartStateType, action:ReducerAction):CartStateType =
                return {
                     ...state,
                     cart: state.cart.map((foodItem: CartItemType) => {
-                         if (foodItem.id === action.payload.id) {
+                         if (foodItem._id === action.payload._id) {
                               return {
                                    ...foodItem, quantity: foodItem.quantity - 1
                               }
