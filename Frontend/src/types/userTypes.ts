@@ -1,7 +1,7 @@
 // User registration reducer types
 
 export type RegistrationType = {
-     name: string,
+     fullName: string,
      email: string,
      password: string
 }
