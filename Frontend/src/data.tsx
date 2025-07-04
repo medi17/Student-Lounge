@@ -110,7 +110,7 @@ export const foodItems = [
           id: 9,
           name: 'Chornake', 
           duration: '20',
-          description: "Crafted with simple ingredients and baked to be golden. It's rustic and smoky flavor",
+          description: "Crafted with simple ingredients and baked to be golden. It's rustic and smoky flavor.",
           price: '15',
           image: Chornake,
           quantity: 1,
