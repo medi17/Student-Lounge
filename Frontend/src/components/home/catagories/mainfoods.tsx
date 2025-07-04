@@ -16,9 +16,9 @@ const Mainfoods = () => {
      return (
           <div className="scroll main bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-3 py-5 md:px-10">
                {
-                    mainItems.map((fooditem: FoodItem) => (                         
-                         fooditem.catagory === "main" && (     
-                              <FoodComponent food = { fooditem } key={fooditem.id}/>
+                    mainItems.map((fooditem: FoodItem) => (                      
+                         fooditem.catagory === "Main foods" && (     
+                              <FoodComponent food = { fooditem } key={fooditem._id}/>
                          )
                     
                     ))

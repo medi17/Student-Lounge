@@ -18,8 +18,8 @@ const drinks = () => {
           <div className="scroll bg-white flex justify-start gap-5 overflow-x-scroll mb-5 mx-2 rounded-[30px] md:gap-10 px-3 py-5 md:px-10">
                {
                     drinkItems.map((fooditem: FoodItem) => (                         
-                         fooditem.catagory === "drink" && (     
-                              < FoodComponent food = { fooditem } key={fooditem.id}/>
+                         fooditem.catagory === "Drinks" && (     
+                              < FoodComponent food = { fooditem } key={fooditem._id}/>
                          )
                     
                     ))
