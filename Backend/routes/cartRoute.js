@@ -6,6 +6,6 @@ const cartRouter = express.Router()
 
 cartRouter.post("/add", authMiddleware, addToCart)
 cartRouter.post("/remove", authMiddleware, removeFromCart)
-cartRouter.get("/get", authMiddleware, fetchFromCart)
+cartRouter.post("/get", authMiddleware, fetchFromCart)
 
 export default cartRouter

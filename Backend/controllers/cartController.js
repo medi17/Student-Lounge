@@ -4,17 +4,16 @@ import userModel from "../models/userModel.js";
 
 const addToCart = async (req, res) => {
      try {
-          const userId = req.body.userId
-          let userData = await userModel.findById(userId )
+          let userData = await userModel.findById(req.body.userId)
           
           let cartData = await userData.cartData
-          if (!cartData[userId]) {
-               cartData[req.body.itemId] = 1
+          if (!cartData[req.body._id]) {
+               cartData[req.body._id] = 1
           } else {
-               cartData[req.body.itemId] += 1
+               cartData[req.body._id] += 1
           }
      
-          await userModel.findByIdAndUpdate(userId, { cartData })
+          await userModel.findByIdAndUpdate(req.body.userId, { cartData })
           res.json({ success: true, message: "Added to cart" })
           
      } catch (error) {
@@ -28,15 +27,14 @@ const addToCart = async (req, res) => {
 
 const removeFromCart = async (req, res) => {
      try {
-          const userId = req.body.userId
-          let userData = await userModel.findById(userId)
+          let userData = await userModel.findById(req.body.userId)
           let cartData = await userData.cartData
 
-          if (cartData[userId]>0) {
-               cartData[req.body.itemId] -= 1
+          if (cartData[req.body._id]>0) {
+               cartData[req.body._id] -= 1
           }
      
-          await userModel.findByIdAndUpdate(userId, { cartData })
+          await userModel.findByIdAndUpdate(req.body.userId, { cartData })
           res.json({ success: true, message: "Removed from cart" })
           
      } catch (error) {
@@ -49,8 +47,7 @@ const removeFromCart = async (req, res) => {
 
 const fetchFromCart = async (req, res) => {
      try {
-          const userId = req.body.userId
-          let userData = await userModel.findById(userId)
+          let userData = await userModel.findById(req.body.userId)
           let cartData = await userData.cartData
 
           res.json({success: true, cartData})
