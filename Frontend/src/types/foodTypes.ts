@@ -7,7 +7,7 @@ export type ChildrenType = {
 // // CartContext types
 
 export type FoodItem = {
-  id: number,
+  _id: number,
   name: string,
   duration: string,
   description: string,
@@ -28,7 +28,7 @@ export type CartContextType = {
 }
 
 export type CartItemType = {
-  id: number,
+  _id: number,
   name: string,
   duration: string,
   description: string,
