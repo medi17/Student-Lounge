@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import cartReducer, { InitialState } from "../hooks/UseReducer";
-import { CartContextType, ChildrenType } from "../types/foodTypes";
+import { CartContextType, ChildrenType, FoodItem } from "../types/foodTypes";
 import axios from "axios";
 import { UserContext } from "./UserContext";
-import { foodItems } from "../data";
+
 
 export const CartContext = createContext<CartContextType | null>(null)
 
@@ -21,7 +21,7 @@ const CartContextProvider = ({ children }:ChildrenType) => {
      const url = usecontext.url
 
      // a code for fetching food lists from db to display
-     const [foodItems, setFoodItems] = useState([])
+     const [foodItems, setFoodItems] = useState<FoodItem[]>([])
 
      const fetchFoods = async () => {
           const response = await axios.get(url + "/api/food/list")
