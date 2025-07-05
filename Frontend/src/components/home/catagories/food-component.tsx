@@ -2,6 +2,7 @@ import { JSX, useContext } from "react"
 import { FoodProps } from "../../../types/foodTypes"
 import { CartContext } from "../../../context/CartContext"
 import { UserContext } from "../../../context/UserContext";
+import axios from "axios";
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
      const {_id, image, name, duration, description, price } = food;
@@ -20,16 +21,18 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
           throw new Error("UserContext is not provided");
      }
      const url = userContext.url
+     const token = userContext.token
 
-
-     const Add = (id: number) => {
+     const Add = async (id: string) => {
 
           if (cart.find(foodItem => foodItem._id === id)) {
                return;
           } else {
                dispatch({ type: "Add", payload: food })
           }
-  
+          if (token) {
+               await axios.post(url+"/api/cart/add", {_id:id}, {headers:{token}})
+          }
      }
 
      return (
