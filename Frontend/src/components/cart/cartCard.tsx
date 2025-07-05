@@ -26,7 +26,7 @@ const cartCard = () => {
                               ) : (
                                    
                                    cartItems.map((food: CartItemType) => (
-                                        <FoodCardForCart food={food} key={food.id}></FoodCardForCart>
+                                        <FoodCardForCart food={food} key={food._id}></FoodCardForCart>
                                    ))
                                    
                               )
