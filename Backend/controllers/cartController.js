@@ -33,13 +33,32 @@ const removeFromCart = async (req, res) => {
           if (cartData[req.body._id]>0) {
                cartData[req.body._id] -= 1
           }
-     
           await userModel.findByIdAndUpdate(req.userId, { cartData })
           res.json({ success: true, message: "Removed from cart" })
           
      } catch (error) {
           console.log(error)
           res.json({success: false, message:"Error"})
+     }
+}
+
+// delete cart item completely
+
+const deleteFromCart = async (req, res) => {
+     try {
+          let userData = await userModel.findById(req.userId)
+          let cartData = await userData.cartData
+          if (!cartData[req.body._id]) { 
+               res.json({success:false, message:"Item not found"})
+          }          
+          delete cartData[req.body._id]
+
+          await userModel.findByIdAndUpdate(req.userId, { cartData })
+          res.json({ success: true, message: "Deleted from cart successfully" })
+          
+     } catch (error) {
+          console.log(error);
+          res.json({success:false, message:"Deleting from cart failed"})
      }
 }
 
@@ -56,4 +75,4 @@ const fetchFromCart = async (req, res) => {
      }
 }
 
-export {addToCart, removeFromCart, fetchFromCart}
+export {addToCart, removeFromCart, deleteFromCart, fetchFromCart}
