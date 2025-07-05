@@ -116,7 +116,3 @@ const foodCardForCart = ({food}: FoodProps) => {
 }
 
 export default foodCardForCart
-
-// <button className="px-2 py-2 rounded-xl cursor-pointer hover:text-Crimson"
-// onClick={() => {dispatch({type: "Remove", payload: food})}}
-// ><FontAwesomeIcon icon={faTrashCan} className="text-xl"/></button>
