@@ -44,8 +44,7 @@ const add = ({ className }: Props) => {
           }
           else {
                toast.error(response.data.message)
-               console.log(response.data.message);
-               
+               console.log(response.data.message);  
           }
      } 
 

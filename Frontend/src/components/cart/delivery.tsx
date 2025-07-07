@@ -12,8 +12,8 @@ const delivery = ({setToOrdersummary}:Props) => {
           throw new Error("OrderContext is not provided");
      }
      
-     const isChecked = Order?.isChecked
-     const setIsChecked = Order?.setIsChecked
+     const isChecked = Order.isChecked
+     const setIsChecked = Order.setIsChecked
 
 
 

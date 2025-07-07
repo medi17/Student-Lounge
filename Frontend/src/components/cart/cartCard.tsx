@@ -13,7 +13,7 @@ const cartCard = () => {
      if (!cart) {
           throw new Error("CartContext is not provided");
      }
-     const cartItems = cart?.cart.cart || []
+     const cartItems = cart.cart.cart || []
 
      return (
           <div className={cartItems.length === 0 ? "bg-white shadow-2xl rounded-[30px] py-10 px-6 mx-5 min-w-[260px] md:px-7 md:h-[300px] md:min-w-[312px] lg:mx-16 " :  "bg-white shadow-2xl rounded-[30px] py-5 px-6 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16 md:h-[450px] overflow-hidden"}>
