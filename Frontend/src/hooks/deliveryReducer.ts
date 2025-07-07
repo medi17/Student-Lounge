@@ -1,14 +1,17 @@
-import { AddItemType, AddReducerAction } from "../types/admintypes"
+import { deliverInfoType, deliveryReducerAction } from "../types/userTypes"
+
+
 
 export const InitialState = {
-     name: "",
-     duration: "",
-     description: "",
-     catagory:"Main foods",
-     price: "",
+     firstName: "",
+     lastName: "",
+     email: "",
+     phoneNumber: "",
+     dormBlock:"Men's - A",
+     dormNumber:""
 }
 
-export const addItemReducer = (state: AddItemType, action: AddReducerAction): AddItemType => {
+export const deliveryReducer = (state:deliverInfoType, action:deliveryReducerAction):deliverInfoType => {
      switch (action.type) {
           case "Change_Input":
                if (!action.payload) return state;
@@ -19,6 +22,6 @@ export const addItemReducer = (state: AddItemType, action: AddReducerAction): Ad
           case "Reset":
                return InitialState
           default:
-               return state
+               return state;
      }
 }
