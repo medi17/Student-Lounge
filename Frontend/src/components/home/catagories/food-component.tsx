@@ -27,11 +27,17 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
 
           if (cart.find(foodItem => foodItem._id === id)) {
                return;
-          } else {
-               dispatch({ type: "Add", payload: food })
           }
           if (token) {
-               await axios.post(url+"/api/cart/add", {_id:id}, {headers:{token}})
+               const response = await axios.post(url + "/api/cart/add", { _id: id }, { headers: { token } })
+
+               if (response.data.success) { 
+                    dispatch({ type: "Add", payload: food })
+               } else {
+                    console.error("Backend error adding item:", response.data.message);
+               }
+          }else {
+               dispatch({ type: "Add", payload: food });
           }
      }
 
