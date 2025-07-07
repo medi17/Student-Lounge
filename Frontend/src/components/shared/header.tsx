@@ -20,7 +20,7 @@ const header = ():JSX.Element => {
           throw new Error("CartContext is not provided");
      }
 
-     const cart = cartContext?.cart;
+     const cart = cartContext.cart;
 
      const userContext = useContext(UserContext)
           
@@ -45,7 +45,7 @@ const header = ():JSX.Element => {
                <ul className={toggleState ?"nav active-nav flex justify-between items-center gap-8 text-[20px]" : "nav flex justify-between items-center gap-8 text-[20px]"} >
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
-                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/profile">Profile</NavLink></li>
+                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/mobile">Mobile</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/admin">Admin</NavLink></li>
                </ul>
                <div className="flex justify-center items-center gap-4">
