@@ -51,7 +51,7 @@ const list = ({ className }: Props) => {
                                    <th className="font-medium py-6">Action</th>
                               </tr>
                          </thead>
-                         <tbody className="[&_tr:nth-child(even)]:bg-[var(--color-gray-tri)]">
+                         <tbody className="[&_tr:nth-child(even)]:bg-[var(--color-gray-penta)]">
                               {list.map((item:itemListType, index:number) => {
                                    return (
                                         <tr key={index} className="">
