@@ -53,12 +53,14 @@ export type ReducerActionType = typeof Reducer_action_type
 
 export type ReducerAction = {
   type: string,
-  payload: CartItemType 
+  payload?: CartItemType 
 }
 
 // // Order Context types
 
 export type OrderContextType ={
   isChecked: string, 
-  setIsChecked: React.Dispatch<React.SetStateAction<string>>
+  setIsChecked: React.Dispatch<React.SetStateAction<string>>,
+  foodPriceCalculator:()=>number,
+  totalFee: number
 }
