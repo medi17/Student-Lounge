@@ -26,4 +26,25 @@ export type UserContextType = {
 
 export type ChildrenType = {
      children: React.ReactNode
-   }
+}
+
+// Delivery Types
+
+export type deliverInfoType = {
+     firstName: string,
+     lastName: string,
+     email: string,
+     phoneNumber: string,
+     dormBlock: string,
+     dormNumber:string
+}
+
+type deliveryInfoPayload = {
+     name: string,
+     value: string
+}
+
+export type deliveryReducerAction = {
+     type: string,
+     payload?: deliveryInfoPayload
+}
