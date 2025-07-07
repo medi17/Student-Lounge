@@ -1,6 +1,6 @@
 import Header from "../components/shared/header"
 import Footer from "../components/shared/footer"
-import DeliveryForm from "../components/profile/delivery_form"
+import DeliveryForm from "../components/deliverypage/delivery_form"
 
 const profile = () => {
      return (
