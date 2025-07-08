@@ -120,10 +120,10 @@ const delivery_form = () => {
                          <div>
                               <label className="pl-3 font-medium mr-5" htmlFor="fruits">Dorm block: </label>
                               <select name="dormBlock" value={state.dormBlock} onChange={handleChange} className="bg-gray-hepta p-3 rounded-xl focus:outline-none" >
-                                   <option value="MensA">Men's - A</option>
-                                   <option value="banana">Men's - B</option>
-                                   <option value="orange">Women's - C</option>
-                                   <option value="grape">Women's - D</option>
+                                   <option value="Men's - A">Men's - A</option>
+                                   <option value="Men's - B">Men's - B</option>
+                                   <option value="Women's - C">Women's - C</option>
+                                   <option value="Women's - D">Women's - D</option>
                               </select>
                          </div>
 

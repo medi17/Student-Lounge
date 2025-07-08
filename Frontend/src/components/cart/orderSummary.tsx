@@ -36,7 +36,7 @@ const OrderSummary = () => {
                </div>
                <hr className="my-5 w-full border-dashed" />
                <button className="bg-Crimson text-white py-2 lg:px-24 rounded-3xl font-medium px-14 lg:text-lg cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white"
-               onClick={() => navigator("/profile")}
+               onClick={() => navigator("/delivery")}
                >Proceed to Order</button>
 
           </>

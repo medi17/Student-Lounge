@@ -50,7 +50,7 @@ const header = ():JSX.Element => {
                </ul>
                <div className="flex justify-center items-center gap-4">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[20px] cursor-pointer" />
-                    <NavLink to="/Cart">
+                    <NavLink to="/cart">
                          <div className=" flex relative items-center cursor-pointer">
                               <FontAwesomeIcon icon={faCartShopping} className="text-[20px] cursor-pointer"/>
                               <p className="font-medium text-l text-Crimson absolute -top-4 left-5">{cart.cart.length}</p>
@@ -58,7 +58,7 @@ const header = ():JSX.Element => {
                     </NavLink>
                     <div className="hidden md:block">
                          {!token ?
-                              <NavLink to="/Login">
+                              <NavLink to="/login">
                                    <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
                                         Login
                                    </button>
@@ -67,8 +67,10 @@ const header = ():JSX.Element => {
                               <div className="profile relative">
                                    <img src={ProfileImage} alt="profile picture" className="w-10 cursor-pointer" />
                                    <ul className="profile-dropdown hidden absolute right-0 z-40 border-2 border-gray-tri rounded-2xl">
-                                        <li className="flex justify-center items-center font-medium text-lg px-6 pt-2 cursor-pointer hover:text-Crimson">
-                                             <FontAwesomeIcon icon={faBagShopping} className="mr-3" />Orders</li>
+                                        <NavLink to="/myorders">
+                                             <li className="flex justify-center items-center font-medium text-lg px-6 pt-2 cursor-pointer hover:text-Crimson">
+                                                       <FontAwesomeIcon icon={faBagShopping} className="mr-3" />Orders</li>
+                                        </NavLink>
                                         <hr className="border-t-2 border-gray-tri"/>
                                         <li onClick={logOut} className="flex justify-center items-center font-medium text-lg px-6 pb-2 cursor-pointer hover:text-Crimson">
                                              <FontAwesomeIcon icon={faBagShopping} className="mr-3" />LogOut</li>

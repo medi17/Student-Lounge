@@ -1,7 +1,8 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { toast } from 'react-toastify'
 import { itemListType } from "../../types/admintypes"
+import { UserContext } from "../../context/UserContext"
 
 type Props = {
      className:string
@@ -9,9 +10,16 @@ type Props = {
 
 const list = ({ className }: Props) => {
      
-     const [list, setList] = useState<itemListType[]| []>([])
+     const [list, setList] = useState<itemListType[]>([])
 
-     const url = "http://localhost:4000"
+     // User context import
+     const usecontext = useContext(UserContext)
+
+     if (!usecontext) {
+          throw new Error("UserContext is not provided");
+     }
+     const url = usecontext.url
+     
      const fetchList = async () => {
           const response = await axios.get(`${url}/api/food/list`)
 
@@ -29,7 +37,7 @@ const list = ({ className }: Props) => {
           if (response.data.success) {
                toast.success(response.data.message)
           } else {
-               toast.error("Error")
+               toast.error(response.data.message)
           }
           
      }
