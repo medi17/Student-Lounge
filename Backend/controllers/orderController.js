@@ -24,6 +24,27 @@ const placeOrders = async (req, res) => {
      }
 }
 
+// Display orders of user her/himself
 
+const userOrders = async (req, res) => {
+     try {
+          const myOrders = await orderModel.find({ userId: req.userId })
+          res.json({success:true, data:myOrders})
+     } catch (error) {
+          console.log(error)
+          res.json({success:false, message:"Getting user orders failed"})
+     }
+}
 
-export {placeOrders}
+// Listing all orders on admin panal
+
+const fetchOrders = async (req, res) => {
+     try {
+          const allOrders = await orderModel.find({})
+          res.json({success:true, data:allOrders})
+     } catch (error) {
+          console.log(error)
+          res.json({success:false, message:"Error with fetching users orders"})
+     } 
+}
+export {placeOrders, userOrders, fetchOrders}
