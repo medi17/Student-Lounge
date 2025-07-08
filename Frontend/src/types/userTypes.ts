@@ -1,3 +1,5 @@
+import { CartItemType } from "./foodTypes"
+
 // User registration reducer types
 
 export type RegistrationType = {
@@ -47,4 +49,21 @@ type deliveryInfoPayload = {
 export type deliveryReducerAction = {
      type: string,
      payload?: deliveryInfoPayload
+}
+
+// Order Types
+
+export type orderTypes = {
+     _id: string,
+     userId: string,
+     foods: CartItemType[],
+     delivery: boolean,
+     status: string,
+     fee: number,
+     info: deliverInfoType,
+     date:string
+}
+
+export type orderProps = {
+     order:orderTypes
 }
