@@ -33,6 +33,7 @@ const removeFromCart = async (req, res) => {
           if (cartData[req.body._id]>0) {
                cartData[req.body._id] -= 1
           }
+
           await userModel.findByIdAndUpdate(req.userId, { cartData })
           res.json({ success: true, message: "Removed from cart" })
           
@@ -69,8 +70,9 @@ const fetchFromCart = async (req, res) => {
           let userData = await userModel.findById(req.userId)
           let cartData = await userData.cartData
 
-          res.json({success: true, cartData})
+          res.json({success: true,cartData})
      } catch (error) {
+          console.log(error)
           res.json({success:false, message:"Error fetching cart data"})
      }
 }

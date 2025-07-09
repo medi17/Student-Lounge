@@ -30,14 +30,13 @@ const orders = ({ className }: Props) => {
      }
 
      useEffect(() => {
-          // fetchOrders(); 
-          setOrders(orderData)
+          fetchOrders(); 
      }, [])
 
      return (
           <div className={className}> 
-               <div className={orders.length === 0 ? "w-full bg-white shadow-2xl rounded-[30px] py-10 px-6 my-5" :  "w-full bg-white shadow-2xl rounded-[30px] py-5 px-6 my-5"}>
-                    <div className="mt-7 flex flex-col gap-5">
+               <div className={orders.length === 0 ? "w-full bg-white shadow-2xl rounded-[30px] py-10 px-6 my-5" :  "w-full bg-white shadow-2xl rounded-[30px] py-3 px-1 sm:px-6 sm:py-6 my-6"}>
+                    <div className="flex flex-col gap-5">
                          {orders.length === 0 ? (
                               <div>
                                    <div className="my-18 text-3xl flex items-center font-light md:text-3xl">Seems like there are no orders
@@ -46,7 +45,7 @@ const orders = ({ className }: Props) => {
                               </div>
                     ) : (
                               orders.map((order:orderTypes) => (
-                                        <OrdersCard order={order} key={order._id}></OrdersCard>
+                                        <OrdersCard order={order} fetchOrders={fetchOrders} key={order._id}></OrdersCard>
                                    ))                                   
                               )
                          }
