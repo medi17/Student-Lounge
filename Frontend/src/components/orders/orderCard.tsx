@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons"
 
 
-const orderCard = ({ order }: orderProps) => {
+const orderCard = ({ order, fetchOrders}: orderProps) => {
      const { foods, status, fee, delivery } = order
      
      return (
@@ -23,7 +23,7 @@ const orderCard = ({ order }: orderProps) => {
                {
                     delivery === true ? (
                          <button className="bg-gray-penta p-1 sm:py-2 sm:px-3 text-[9px] sm:text-sm lg:text-[15px] font-medium rounded-2xl cursor-pointer hover:bg-gray-hexa"
-                              // onClick={}
+                              onClick={fetchOrders}
                          >Track order</button>
                     
                     ) : (
