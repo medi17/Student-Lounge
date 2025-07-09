@@ -1,9 +1,11 @@
 import Home from "./pages/home"
-import Profile from "./pages/profile"
+import Delivery from "./pages/delivery"
 import Contact from "./pages/contact"
 import Cart from "./pages/cart"
 import Login from "./pages/login"
 import { createBrowserRouter } from 'react-router-dom'
+import MyOrders from "./pages/myorders"
+import Admin from './pages/admin'
 
 const App = createBrowserRouter([
   {
@@ -15,8 +17,12 @@ const App = createBrowserRouter([
     element: <Contact />
   },
   {
-    path: '/profile',
-    element: <Profile />
+    path: '/delivery',
+    element: <Delivery />
+  },
+  {
+    path: '/mobile',
+    element: <MyOrders />
   },
   {
     path: '/cart',
@@ -25,7 +31,15 @@ const App = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
-  },  
+  },
+  {
+    path: '/myorders',
+    element: <MyOrders />    
+  },
+  {
+    path: '/admin',
+    element: <Admin />
+  },
 ])
 
 export default App
