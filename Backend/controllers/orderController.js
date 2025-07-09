@@ -47,4 +47,17 @@ const fetchOrders = async (req, res) => {
           res.json({success:false, message:"Error with fetching users orders"})
      } 
 }
-export {placeOrders, userOrders, fetchOrders}
+
+// updating food status
+
+const foodStatus = async (req, res) => {
+     try {
+          await orderModel.findByIdAndUpdate( req.body.orderId, {status:req.body.status })
+          res.json({success:true, message:"Status updated"})
+     } catch (error) {
+          console.log(error);
+          res.json({success:false, message:"Error on status updating"})
+     }
+}
+
+export {placeOrders, userOrders, fetchOrders, foodStatus}
