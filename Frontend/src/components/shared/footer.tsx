@@ -18,7 +18,7 @@ const footer = () => {
                     </div>
                     <div className="flex flex-col text-base mt-8 w-[100px] md:text-lg md:mt-0">
                          <NavLink to="/" className="hover:text-Crimson cursor-pointer">Home</NavLink>
-                         <NavLink to="/profile" className="hover:text-Crimson cursor-pointer">Profile</NavLink>
+                         <NavLink to="/mobile" className="hover:text-Crimson cursor-pointer">Mobile</NavLink>
                          <NavLink to="/contact" className="hover:text-Crimson cursor-pointer">Contact Us</NavLink>
                     </div>
                     <div className="mt-5 md:text-lg md:mt-0">

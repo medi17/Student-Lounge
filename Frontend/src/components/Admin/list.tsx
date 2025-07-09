@@ -50,7 +50,7 @@ const list = ({ className }: Props) => {
           <div className={className}>
                <div className="rounded-[30px] overflow-hidden">
                     <table className="mt-5 w-full border-gray-tetra rounded-2xl shadow-2xl border-collapse">
-                         <thead className="round-t-4xl bg-gray-hexa text-xs sm:text-base">
+                         <thead className="round-t-4xl bg-red-100 text-xs sm:text-base">
                               <tr>
                                    <th className="font-medium py-6">Image</th>
                                    <th className="font-medium py-6">Name</th>
@@ -59,7 +59,7 @@ const list = ({ className }: Props) => {
                                    <th className="font-medium py-6">Action</th>
                               </tr>
                          </thead>
-                         <tbody className="[&_tr:nth-child(even)]:bg-[var(--color-gray-penta)]">
+                         <tbody className="[&_tr:nth-child(even)]:bg-[var(--color-gray-octa)]">
                               {list.map((item:itemListType, index:number) => {
                                    return (
                                         <tr key={index} className="">
