@@ -7,7 +7,7 @@ import { UserContext } from "../../context/UserContext"
 import axios from "axios"
 
 const foodCardForCart = ({food}: FoodProps) => {
-     const  { _id, name, image, description, price, quantity } = food
+     const  { _id, name, image, description, price} = food
      
      const cartContext = useContext(CartContext)
 
@@ -15,7 +15,7 @@ const foodCardForCart = ({food}: FoodProps) => {
           throw new Error("CartContext is not provided");
      }
 
-     const cart = cartContext.cart.cart || []
+     const cart = cartContext.cart
      const dispatch = cartContext.dispatch
 
      const userContext = useContext(UserContext);
@@ -27,62 +27,52 @@ const foodCardForCart = ({food}: FoodProps) => {
      const token = userContext.token
 
      const Increase = async (id: string) => {
-          const index = cart.findIndex(foodItem => foodItem._id === id)
-          // if (cart[index].quantity < 10) {
-          //      dispatch({type: "Increase", payload: food})
-          // }
-          if (index === -1 || cart[index].quantity >= 10) {
-               return;
-           }
           if (token) {
-               const response = await axios.post(url + "/api/cart/add", { foodId: id }, { headers: { token } });
+               const response = await axios.post(url + "/api/cart/increase", { _id: id }, { headers: { token } });
 
                if (response.data.success) {
-                   dispatch({ type: "Increase", payload: food });
+                    if (cart[id] < 10) {
+                         dispatch({ type: "Increase", payload: { id } })
+                    }
                } else {
-                   console.error("Backend error increasing item:", response.data.message);
+                    console.error("Backend error decreasing food from cart:", response.data.message);
                }
-         }  else {
-          dispatch({ type: "Increase", payload: food });
-      }
-  
+
+          } else {
+               dispatch({type: "Increase", payload: {id}})
+          }               
      }
 
      const Decrease = async (id: string)=> {
-          const index = cart.findIndex(foodItem => foodItem._id === id)
-          // if (cart[index].quantity > 1) {
-          //      dispatch({type: "Decrease", payload: food})
-          // }
-          if (index === -1 || cart[index].quantity <= 1) {
-               return;
-          }
-   
           if (token) {
-               const response =  await axios.post(url + "/api/cart/remove", { _id: id }, { headers: { token } })
+               const response = await axios.post(url + "/api/cart/decrease", { _id: id }, { headers: { token } })
                
                if (response.data.success) {
-                    dispatch({ type: "Decrease", payload: food });
+                    if (cart[id] > 1) {
+                         dispatch({ type: "Decrease", payload: { id } })
+                    }
                } else {
-                    console.error("Backend error decreasing item:", response.data.message);
-               }               
+                    console.error("Backend error decreasing food from cart:", response.data.message);
+               }
+
           } else {
-               dispatch({ type: "Decrease", payload: food });
-           }
+               dispatch({type: "Decrease", payload: {id}})
+          }
      }
 
      const Delete = async (id: string) =>{
           
           if (token) {
-               const response = await axios.post(url + "/api/cart/remove", { _id: id }, { headers: { token } })
+               const response = await axios.post(url + "/api/cart/delete", { _id: id }, { headers: { token } })
                
                if (response.data.success) {
-                    dispatch({ type: "Remove", payload: food });
+                    dispatch({ type: "Remove", payload: {id} });
                } else {
                     console.error("Backend error deleting item:", response.data.message);
                }
           
           } else {
-               dispatch({ type: "Remove", payload: food });
+               dispatch({ type: "Remove", payload: {id} });
           }
      }
      return (
@@ -99,7 +89,7 @@ const foodCardForCart = ({food}: FoodProps) => {
                               <button className="bg-Crimson text-white font-medium text-xl px-[9px] border-2 border-Crimson rounded-xl hover:text-Crimson hover:bg-white cursor-pointer"
                               onClick={()=> Decrease(_id)}
                               >-</button>
-                              <p className="text-2xl font-medium">{quantity}</p>
+                              <p className="text-2xl font-medium">{cart[_id]}</p>
                               <button className="bg-Crimson text-white font-medium text-xl px-2 border-2 border-Crimson rounded-xl hover:text-Crimson hover:bg-white cursor-pointer"
                                    onClick={() => Increase(_id)}
                               >+</button>
@@ -109,7 +99,8 @@ const foodCardForCart = ({food}: FoodProps) => {
                
                <button className="px-2 py-2 rounded-xl cursor-pointer hover:text-Crimson"
                     onClick={()=>Delete(_id)}
-               ><FontAwesomeIcon icon={faTrashCan} className="text-xl"/></button>
+                    ><FontAwesomeIcon icon={faTrashCan} className="text-xl" />
+               </button>
                
           </div>               
      )

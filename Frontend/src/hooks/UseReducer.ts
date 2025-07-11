@@ -1,46 +1,34 @@
-import { ReducerAction, CartStateType, CartItemType } from "../types/foodTypes"
+import { ReducerAction, CartStateType } from "../types/foodTypes"
 
-export const InitialState: CartStateType = {
-  cart: []
-}
+export const InitialState: CartStateType = {}
 
 
 const cartReducer = (state: CartStateType, action:ReducerAction):CartStateType => {
      switch(action.type){
           case "Add":
                return {
-                    cart:[...state.cart, action.payload] as CartItemType[]
+                    ...state,
+                    [action.payload.id]: 1
                }
           case "Remove":
-               return {
-                    cart: state.cart.filter((foodItem: CartItemType) => 
-                         foodItem._id !== action.payload?._id
-                    )
-               }
+               const newState = { ...state }; 
+               delete newState[action.payload.id];
+               return newState;
           case "Increase":
                return {
                     ...state,
-                    cart: state.cart.map((foodItem: CartItemType) => {
-                         if (foodItem._id === action.payload?._id) {
-                              return {
-                                   ...foodItem, quantity: foodItem.quantity + 1
-                              }
-                         }
-                         return foodItem
-                    })
+                    [action.payload.id]: state[action.payload.id] + 1
                }
           case "Decrease":
                return {
                     ...state,
-                    cart: state.cart.map((foodItem: CartItemType) => {
-                         if (foodItem._id === action.payload?._id) {
-                              return {
-                                   ...foodItem, quantity: foodItem.quantity - 1
-                              }
-                         }
-                         return foodItem
-                    })
+                    [action.payload.id]: state[action.payload.id] - 1
                }
+          case "SET_CART":
+               if (action.payload === null) {
+                    return InitialState
+               }
+               return action.payload
           case "Reset":
                return InitialState
           default:
