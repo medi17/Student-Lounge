@@ -1,18 +1,17 @@
 import { useState } from "react"
-import { CartItemType } from "../../types/foodTypes"
 import Delivery from "./delivery"
 import OrderSummary from "./orderSummary"
 
 type Props = {
-    cartItems: CartItemType[]
+     isCartEmpty: boolean
 }
 
-const Order = ({cartItems}:Props) => {
+const Order = ({isCartEmpty}:Props) => {
 
      const [toOrdersummary, setToOrdersummary] = useState<boolean>(false)
 
      return (
-          <div className={cartItems.length === 0 ? "hidden":  "block"}>
+          <div className={isCartEmpty === true ? "hidden":  "block"}>
                <div className={toOrdersummary? "hidden": "block"}>
                     <Delivery setToOrdersummary = {setToOrdersummary}/>
                </div>
