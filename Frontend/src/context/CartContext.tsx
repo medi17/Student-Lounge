@@ -39,7 +39,7 @@ const CartContextProvider = ({ children }:ChildrenType) => {
           }
           loadFoods();
      }, [])
-     
+
      return (
           <CartContext.Provider value={{ cart, dispatch, foodItems}}>
                {children}

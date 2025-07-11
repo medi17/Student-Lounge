@@ -5,7 +5,6 @@ import { orderTypes } from "../../types/userTypes"
 import OrdersCard from "../Admin/ordersCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFaceSadTear } from "@fortawesome/free-solid-svg-icons"
-import orderData from "../../data_admin"
 
 type Props = {
      className:string
