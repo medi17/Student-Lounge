@@ -12,7 +12,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      if (!cartContext) {
           throw new Error("CartContext is not provided");
      }
-     const cart = cartContext.cart.cart
+     const cart = cartContext.cart
      const dispatch = cartContext.dispatch
 
      const userContext = useContext(UserContext);
@@ -24,20 +24,19 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
      const token = userContext.token
 
      const Add = async (id: string) => {
-
-          if (cart.find(foodItem => foodItem._id === id)) {
-               return;
-          }
           if (token) {
                const response = await axios.post(url + "/api/cart/add", { _id: id }, { headers: { token } })
-
-               if (response.data.success) { 
-                    dispatch({ type: "Add", payload: food })
+               
+               if (response.data.success) {
+                    if (!cart[id]) {
+                         dispatch({ type: "Add", payload: { id } })
+                    }
                } else {
-                    console.error("Backend error adding item:", response.data.message);
+                    console.error("Backend error adding food to cart:", response.data.message);
                }
-          }else {
-               dispatch({ type: "Add", payload: food });
+
+          } else {
+               dispatch({ type: "Add", payload: {id}})
           }
      }
 
