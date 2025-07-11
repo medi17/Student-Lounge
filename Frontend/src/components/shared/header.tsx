@@ -1,4 +1,4 @@
-import { JSX, useState, useContext, ReactNode} from "react"
+import { JSX, useState, useContext} from "react"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { faMagnifyingGlass, faCartShopping, faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -21,7 +21,9 @@ const header = ():JSX.Element => {
      }
 
      const cart = cartContext.cart;
+     const cartLength = Object.keys(cart).length
 
+     // usercontext import
      const userContext = useContext(UserContext)
           
      if (!userContext) {
@@ -53,7 +55,11 @@ const header = ():JSX.Element => {
                     <NavLink to="/cart">
                          <div className=" flex relative items-center cursor-pointer">
                               <FontAwesomeIcon icon={faCartShopping} className="text-[20px] cursor-pointer"/>
-                              <p className="font-medium text-l text-Crimson absolute -top-4 left-5">{cart.cart.length}</p>
+                              {cartLength === 0 ? (
+                                   <></>
+                              ) : (
+                                   <p className="font-medium text-l text-Crimson absolute -top-4 left-5">{cartLength}</p>
+                              )}
                          </div>
                     </NavLink>
                     <div className="hidden md:block">
