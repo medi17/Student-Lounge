@@ -7,12 +7,10 @@ const addToCart = async (req, res) => {
           let userData = await userModel.findById(req.userId)
           
           let cartData = await userData.cartData
+
           if (!cartData[req.body._id]) {
                cartData[req.body._id] = 1
-          } else {
-               cartData[req.body._id] += 1
           }
-     
           await userModel.findByIdAndUpdate(req.userId, { cartData })
           res.json({ success: true, message: "Added to cart" })
           
@@ -22,24 +20,43 @@ const addToCart = async (req, res) => {
      }
 }    
 
+// decrease food quantity from cart
 
-// remove foods from cart
-
-const removeFromCart = async (req, res) => {
+const increaseFromCart = async (req, res) => {
      try {
           let userData = await userModel.findById(req.userId)
           let cartData = await userData.cartData
 
-          if (cartData[req.body._id]>0) {
+          if (cartData[req.body._id] < 10) {
+               cartData[req.body._id] += 1
+          }
+
+          await userModel.findByIdAndUpdate(req.userId, { cartData })
+          res.json({ success: true, message: "Increased cart item quantity" })
+          
+     } catch (error) {
+          console.log(error)
+          res.json({success: false, message:"Error on increase food quantity from cart"})
+     }
+}
+
+// decrease food quantity from cart
+
+const decreaseFromCart = async (req, res) => {
+     try {
+          let userData = await userModel.findById(req.userId)
+          let cartData = await userData.cartData
+
+          if (cartData[req.body._id] > 1) {
                cartData[req.body._id] -= 1
           }
 
           await userModel.findByIdAndUpdate(req.userId, { cartData })
-          res.json({ success: true, message: "Removed from cart" })
+          res.json({ success: true, message: "Decreased cart item quantity" })
           
      } catch (error) {
           console.log(error)
-          res.json({success: false, message:"Error"})
+          res.json({success: false, message:"Error on decrease food quantity from cart"})
      }
 }
 
@@ -77,4 +94,4 @@ const fetchFromCart = async (req, res) => {
      }
 }
 
-export {addToCart, removeFromCart, deleteFromCart, fetchFromCart}
+export {addToCart, decreaseFromCart, increaseFromCart, deleteFromCart, fetchFromCart}
