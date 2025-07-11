@@ -1,4 +1,4 @@
-import { CartItemType } from "./foodTypes"
+import { FoodItem } from "./foodTypes"
 
 // User registration reducer types
 
@@ -56,7 +56,7 @@ export type deliveryReducerAction = {
 export type orderTypes = {
      _id: string,
      userId: string,
-     foods: CartItemType[],
+     foods: FoodItem[],
      delivery: boolean,
      status: string,
      fee: number,

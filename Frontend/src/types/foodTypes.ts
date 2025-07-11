@@ -14,7 +14,7 @@ export type FoodItem = {
   price: string,
   image: string,
   catagory: string,
-  quantity:number,
+  quantity?:number,
 }
 
 export type FoodProps = {
@@ -27,34 +27,46 @@ export type CartContextType = {
   foodItems: FoodItem[]
 }
 
-export type CartItemType = {
-  _id: string,
-  name: string,
-  duration: string,
-  description: string,
-  price: string,
-  image: string,
-  catagory: string,
-  quantity:number,
+export type CartType = {
+  id: string
 }
 
 export type CartStateType = {
-  cart: CartItemType[]
+  [key: string]: number;
 }
 
-const Reducer_action_type = {
-  ADD: "ADD",
-  REMOVE: "REMOVE",
-  INCREASE: "INCREASE",
-  DECREASE: "DECREASE",
-}
+export type AddAction = {
+  type: "Add";
+  payload: CartType;
+};
 
-export type ReducerActionType = typeof Reducer_action_type
+export type RemoveAction = {
+  type: "Remove";
+  payload: CartType;
+};
 
-export type ReducerAction = {
-  type: string,
-  payload?: CartItemType 
-}
+export type IncreaseAction = {
+  type: "Increase";
+  payload: CartType;
+};
+
+export type DecreaseAction = {
+  type: "Decrease";
+  payload: CartType;
+};
+
+export type SetCartAction = {
+  type: "SET_CART";
+  payload: CartStateType | null;
+};
+
+export type ResetAction = {
+  type: "Reset";
+  payload?: undefined; 
+};
+
+
+export type ReducerAction = AddAction | RemoveAction | IncreaseAction | DecreaseAction | SetCartAction | ResetAction;
 
 // // Order Context types
 
