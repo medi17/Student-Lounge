@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react"
+import { useContext, useReducer, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import { deliveryReducer, InitialState } from "../../hooks/deliveryReducer";
 import { CartContext } from "../../context/CartContext";
@@ -13,6 +13,8 @@ type FormChangeEvent = React.ChangeEvent<FormElement>;
 
 const delivery_form = () => {
      const navigate = useNavigate()
+
+     const [isSubmitting, setIsSubmitting] = useState(false);
 
      //  order Context
      const orderContext = useContext(OrderContext)
@@ -38,8 +40,9 @@ const delivery_form = () => {
      if (!cartContext) {
           throw new Error("CartContext is not provided");
      }
-     const cartItems = cartContext.cart
+     const cart = cartContext.cart
      const cartDispatch = cartContext.dispatch
+     const foodItems = cartContext.foodItems
 
      // Delivery useReducer 
      const [state, dispatch] = useReducer(deliveryReducer, InitialState);
@@ -52,9 +55,18 @@ const delivery_form = () => {
      const placeOrder = async (event:React.FormEvent<HTMLFormElement>) => {
           event.preventDefault();
 
-          let orderItems:FoodItem[] = []
-          cartItems.cart.forEach((item) => {
-                    orderItems.push(item)
+          if (isSubmitting) {
+               return;
+          }
+          setIsSubmitting(true);
+          let orderItems: FoodItem[] = []
+          
+          foodItems.map((food) => {
+               if (cart[food._id] > 0) {
+                    let foodInfo = food
+                    foodInfo["quantity"] = cart[food._id]
+                    orderItems.push(foodInfo)
+               }
           })
           let OrderData = {
                delivery: isChecked,
@@ -70,6 +82,7 @@ const delivery_form = () => {
                navigate("/")
                toast.success(response.data.message)
           } else {
+               setIsSubmitting(false);
                toast.error(response.data.message)
                console.log(response.data.message)
           }
@@ -136,9 +149,10 @@ const delivery_form = () => {
                               required
                          />
                     </div>
-                    <button className="bg-Crimson text-white font-medium w-[20%] p-2 mt-8 rounded-3xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white"
+                    <button className={`bg-Crimson text-white font-medium w-[20%] p-2 mt-8 rounded-3xl cursor-pointer 
+                    border-2 border-Crimson ${isSubmitting?'opacity-70 cursor-not-allowed':'hover:text-Crimson hover:bg-white '}`}
                          type="submit"
-                    >Done</button>
+                    >{isSubmitting?"Processing...":"Processing..."}</button>
                </form>
           </div>
      )
