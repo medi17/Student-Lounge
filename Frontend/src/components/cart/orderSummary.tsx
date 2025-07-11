@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const OrderSummary = () => {
 
@@ -15,6 +16,13 @@ const OrderSummary = () => {
      const totalFee = Order.totalFee
      const foodPriceCalculator = Order.foodPriceCalculator
 
+     const userContext = useContext(UserContext);
+
+     if (!userContext) {
+          throw new Error("UserContext is not provided");
+     }
+
+     const token = userContext.token
 
      return (
           <>
@@ -36,11 +44,15 @@ const OrderSummary = () => {
                </div>
                <hr className="my-5 w-full border-dashed" />
                <button className="bg-Crimson text-white py-2 lg:px-24 rounded-3xl font-medium px-14 lg:text-lg cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white"
-               onClick={() => navigator("/delivery")}
+                    onClick={() => {
+                         if (token) {
+                              navigator("/delivery")
+                         } else {
+                              alert ("Please log in")
+                         }
+                    }}
                >Proceed to Order</button>
-
           </>
-
      )
 }
 
