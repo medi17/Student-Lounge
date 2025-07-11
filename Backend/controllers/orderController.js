@@ -40,7 +40,18 @@ const userOrders = async (req, res) => {
 
 const fetchOrders = async (req, res) => {
      try {
-          const allOrders = await orderModel.find({})
+          const startOfToday = new Date();
+          startOfToday.setHours(0, 0, 0, 0);
+
+          const endOfToday = new Date();
+          endOfToday.setHours(23, 59, 59, 999);
+          
+          const allOrders = await orderModel.find({
+               date: {
+                    $gte: startOfToday, 
+                    $lte: endOfToday
+               }
+          })
           res.json({success:true, data:allOrders})
      } catch (error) {
           console.log(error)
