@@ -33,7 +33,6 @@ export const foodItems = [
           description: 'Fresh, hand-made pasta tossed in a rich, sun-dried tomato and basil sauce. A true culinary delight.',
           price: '50',
           image: Pasta,
-          quantity: 1,
           catagory: 'main'    
      },
      {
@@ -43,7 +42,6 @@ export const foodItems = [
           description: 'Ethiopian Firfir, featuring shredded injera with flavorful berbere, onions, and spiced clarified butter.',
           price: '45',
           image: Firfir,
-          quantity: 1,
           catagory: 'main'
      },
      {
@@ -53,7 +51,6 @@ export const foodItems = [
           description: 'Potato stew, simmered with aromatic spices, onions, and peppers, creating a flavorful dish.',
           price: '50',
           image: Dinich,
-          quantity: 1,
           catagory: 'main'
      },
      {
@@ -63,7 +60,6 @@ export const foodItems = [
           description: 'A Special Ethiopian dish combining diverse stews, vegetables, and injera. A flavorful medley of tastes.',
           price: '50',
           image: Beyeaynet,
-          quantity: 1,
           catagory: 'main'
      },
      {
@@ -73,7 +69,6 @@ export const foodItems = [
           description: 'A rich, flavorful stew made from ground chickpeas, spices, and served with injera.',
           price: '50',
           image: Tegabino,
-          quantity: 1,
           catagory: 'main'
      },
      {
@@ -83,7 +78,6 @@ export const foodItems = [
           description: 'A Tasty soya dish made with tasty soya it self, pepper, onion and other delicious spices.',
           price: '50',
           image: Tasty,
-          quantity: 1,
           catagory: 'main'
      },
      {
@@ -93,7 +87,6 @@ export const foodItems = [
           description: 'Ertib, an Ethiopian dish blending tender potatoes, aromatic spices, and soft bread.',
           price: '45',
           image: Ertib,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -103,7 +96,6 @@ export const foodItems = [
           description: 'Freshly made chips, made with spcial ingredients. Taste the difference in every bite.',
           price: '20',
           image: Chips,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -113,7 +105,6 @@ export const foodItems = [
           description: "Crafted with simple ingredients and baked to be golden. It's rustic and smoky flavor.",
           price: '15',
           image: Chornake,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -123,7 +114,6 @@ export const foodItems = [
           description: 'Crispy, golden Sambusa filled with savory lentils, onions and a unique flavor.',
           price: '20',
           image: Sambusa,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -133,7 +123,6 @@ export const foodItems = [
           description: 'A unique local delight. Delicate, lightly sweetened, offering a comforting warmth',
           price: '20',
           image: Bombolino,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -143,7 +132,6 @@ export const foodItems = [
           description: 'Crispy, golden falafel balls, packed with herbs and spices. Served with fresh ketchup.',
           price: '60',
           image: Falafel,
-          quantity: 1,
           catagory: 'street'
      },
      {
@@ -153,7 +141,6 @@ export const foodItems = [
           description: 'Our tea offers a soothing blend of aromatic leaves. Enjoy a warm, comforting cup, rich in flavor and tradition.',
           price: '5',
           image: Tea,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -163,7 +150,6 @@ export const foodItems = [
           description: 'Rich, aromatic coffee, brewed from premium beans, offering a smooth, robust flavor with hints of chocolate and spice.',
           price: '15',
           image: Coffee,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -173,7 +159,6 @@ export const foodItems = [
           description: 'A Macchiato, layered with bold espresso and velvety steamed milk, offering a sweet, subtly strong coffee experience.',
           price: '30',
           image: Macchiato,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -183,7 +168,6 @@ export const foodItems = [
           description: 'Delicate almond tea, infused with subtle nutty notes and soothing warmth, crafted for a serene and comforting experience.',
           price: '45',
           image: AlmondTea,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -193,7 +177,6 @@ export const foodItems = [
           description: 'A soothing GreenTea blend, lightly steeped with fresh mint, lemon zest, and delicate floral notes. Perfect for relaxation.',
           price: '20',
           image: GreenTea,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -203,7 +186,6 @@ export const foodItems = [
           description: 'A refreshing Fanta, bursting with fruity flavors and a hint of fizz. Perfect for quenching your thirst on a hot day.',
           price: '60',
           image: Fanta,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -213,7 +195,6 @@ export const foodItems = [
           description: 'A Predator drink, a unique blend of flavors, offering a refreshing and energizing experience. Perfect for any occasion.',
           price: '60',
           image: Predator,
-          quantity: 1,
           catagory: 'drink'
      },
      {
@@ -223,7 +204,6 @@ export const foodItems = [
           description: 'A Sprite drink, a crisp and refreshing beverage with a zesty lemon-lime flavor. Perfect for any occasion.',
           price: '60',
           image: Sprite,
-          quantity: 1,
           catagory: 'drink'
      },     
 ]
