@@ -23,9 +23,21 @@ const CartContextProvider = ({ children }:ChildrenType) => {
      // a code for fetching food lists from db to display
      const [foodItems, setFoodItems] = useState<FoodItem[]>([])
 
+     const [foodLoading, setFoodLoading] = useState<boolean>(true)
+
      const fetchFoods = async () => {
           const response = await axios.get(url + "/api/food/list")
-          setFoodItems(response.data.data)
+
+          setTimeout(() => {
+               setFoodLoading(false)
+          }, 4000);
+
+          if (response.data.success) {
+               setFoodItems(response.data.data)
+          }
+          else {
+               setFoodLoading(true) 
+          }
      }
 
      // when the browser loads it constantly fetchs list of foods
@@ -41,7 +53,7 @@ const CartContextProvider = ({ children }:ChildrenType) => {
      }, [])
 
      return (
-          <CartContext.Provider value={{ cart, dispatch, foodItems}}>
+          <CartContext.Provider value={{ cart, dispatch, foodItems, foodLoading}}>
                {children}
           </CartContext.Provider>
      )
