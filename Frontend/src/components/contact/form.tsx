@@ -1,10 +1,19 @@
-import { useReducer } from "react"
+import { useContext, useReducer } from "react"
 import contactUsReducer, { InitialState } from "../../hooks/contactUsReducer"
+import axios from "axios";
+import { UserContext } from "../../context/UserContext";
+import { toast } from "react-toastify";
 
 type FormElement = HTMLInputElement | HTMLTextAreaElement;
 type FormChangeEvent = React.ChangeEvent<FormElement>;
 
 const form = () => {
+
+     const userContext = useContext(UserContext)
+     if (!userContext) {
+          throw new Error("userContext is not provided.");
+     }
+     const url = userContext.url
 
      const[state, dispatch] = useReducer(contactUsReducer, InitialState)
 
@@ -15,6 +24,28 @@ const form = () => {
 
      const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
           event.preventDefault()
+
+          try {
+               let contactInfo = state
+
+               let response = await axios.post(url + "/api/contact/send", contactInfo)
+     
+               if (response.data.success) {
+                    dispatch({type:"Reset"})
+                    toast.success(response.data.message)
+               } else {
+                    toast.error(response.data.message)
+                    console.log(response.data.message)
+               }               
+          } catch (error) {
+               console.error("Error submitting form:", error);
+               if (axios.isAxiosError(error) && error.response) {
+                   toast.error(error.response.data.message || "Failed to send message. Please try again.");
+               } else {
+                   toast.error("An unexpected error occurred. Please try again.");
+               }
+          }
+
      }
 
      return (
