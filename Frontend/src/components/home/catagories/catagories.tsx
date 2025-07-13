@@ -11,7 +11,7 @@ import { faBowlFood,faBurger, faMugHot } from "@fortawesome/free-solid-svg-icons
 
 const catagories = (): JSX.Element => {
      return (
-          <div className='mx-2 md:mx-16'>
+          <div id='foods' className='mx-2 md:mx-16'>
                <SubHeading icon={faBowlFood} title="Main Foods" />
                <MainFoods />
                <SubHeading icon={faBurger} title="Street Foods" />

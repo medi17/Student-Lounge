@@ -21,10 +21,6 @@ const App = createBrowserRouter([
     element: <Delivery />
   },
   {
-    path: '/mobile',
-    element: <MyOrders />
-  },
-  {
     path: '/cart',
     element: <Cart />
   },

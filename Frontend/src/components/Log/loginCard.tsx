@@ -35,15 +35,18 @@ const login = (): JSX.Element => {
                newUrl += "/api/user/register"
           } else {
                newUrl += "/api/user/login"
-          }
-          console.log(newUrl);
-          
+          }          
           const response = await axios.post(newUrl, state)
 
           if (response.data.success) {
-               setToken(response.data.token)
-               localStorage.setItem("token", response.data.token)
-               navigate('/');
+
+               if (response.data.admin) {
+                    navigate('/admin');
+               } else {
+                    navigate('/');
+                    setToken(response.data.token)
+                    localStorage.setItem("token", response.data.token)                    
+               }
           }
           else {
                alert(response.data.message)
