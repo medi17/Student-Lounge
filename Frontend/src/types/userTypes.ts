@@ -73,5 +73,4 @@ export type orderTypes = {
 
 export type orderProps = {
      order: orderTypes
-     fetchOrders:()=>Promise<void>
 }

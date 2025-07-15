@@ -73,7 +73,7 @@ const myorders = () => {
                          </div>
                          ) : (
                               orders.map((order:orderTypes) => (
-                                        <OrderCard order={order} fetchOrders={fetchOrders} key={order._id}></OrderCard>
+                                        <OrderCard order={order} key={order._id}></OrderCard>
                                    ))                                   
                               )
                          )}
