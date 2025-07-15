@@ -28,9 +28,8 @@ const cartCard = () => {
           const response = await axios.get(url + "/api/cart/get", { headers: { token } })
 
           if (response.data.success) {
-               console.log(response.data.cartData)
                dispatch({ type: "SET_CART", payload: response.data.cartData })
-               console.log(foodItems)
+               
           } else {
                console.error("Failed to fetch user cart:", response.data.message);
           }

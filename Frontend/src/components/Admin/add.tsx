@@ -61,7 +61,6 @@ const add = ({ className }: Props) => {
                dispatch({type:"Reset"})
                setImage(null)
                toast.success(response.data.message)
-               console.log(state);
                
           }
           else {
