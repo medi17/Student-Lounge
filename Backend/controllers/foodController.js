@@ -58,6 +58,11 @@ const updateFoodItem = async (req, res) => {
      const {id, name, duration, description, price, catagory } = req.body
 
      try {
+          if (image_filename) {
+               const food = await foodModel.findById(id);
+               fs.unlink(`uploads/${food.image}`, () => { })            
+          }
+          
           await foodModel.findByIdAndUpdate(
                id,
                {
