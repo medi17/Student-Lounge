@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 import { UserContextType, ChildrenType } from "../types/userTypes";
+import { addItemReducer, InitialState } from "../hooks/additemReducer";
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -9,6 +10,7 @@ export const UserContextProvider = ({ children }:ChildrenType) => {
      const [token, setToken] = useState("")
      const [toggleState, setToggleState] = useState(1)
      const [updating, setUpdating] = useState<boolean>(false)
+     const [state, dispatch] = useReducer(addItemReducer, InitialState)
      
      return <UserContext.Provider value={{
           url,
@@ -17,7 +19,9 @@ export const UserContextProvider = ({ children }:ChildrenType) => {
           toggleState,
           setToggleState,
           updating,
-          setUpdating
+          setUpdating,
+          state,
+          dispatch
      }}>
           {children}
      </UserContext.Provider>    
