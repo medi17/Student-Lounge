@@ -1,13 +1,16 @@
-import { JSX, useState, useContext} from "react"
+import { JSX, useState, useContext, useEffect} from "react"
 import { NavLink, useNavigate } from 'react-router-dom'
-import { faMagnifyingGlass, faCartShopping, faBagShopping } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CartContext } from "../../context/CartContext"
 import { UserContext } from "../../context/UserContext"
 import ProfileImage from "../../assets/Profile_pic.png"
+import Skeleton from '@mui/material/Skeleton';
 
 const header = ():JSX.Element => {
      
+     const [loading, setLoading] = useState(true)
+
      const [toggleState, setToggleState] = useState<boolean>(false)
 
      const toggleMenu = () => {
@@ -39,6 +42,15 @@ const header = ():JSX.Element => {
           navigate("/")
      }
 
+     useEffect(() => {
+          setTimeout(() => {
+               setLoading(false)
+          }, 2000);
+          if(!token) {
+               setLoading(true)
+          }
+     }, [token])
+
      return (
           <div className="flex justify-between items-center sticky top-0 m-5 py-3 px-7 bg-white shadow-sm rounded-[50px] z-50 lg:mx-16">
                <NavLink to="/">
@@ -61,7 +73,9 @@ const header = ():JSX.Element => {
                          </div>
                     </NavLink>
                     <div className="hidden md:block">
-                         {!token ?
+                         {loading ? (
+                              <Skeleton variant="circular" width={35} height={35} />
+                         ) : (!token ?
                               <NavLink to="/login">
                                    <button className="cursor-pointer bg-Crimson text-white text-[20px] font-medium py-1 px-3 border-2 border-Crimson rounded-3xl hover:text-Crimson hover:bg-white">
                                         Login
@@ -79,7 +93,7 @@ const header = ():JSX.Element => {
                                         <li onClick={logOut} className="flex justify-center items-center font-medium text-lg px-6 pb-2 cursor-pointer hover:text-Crimson">
                                              <FontAwesomeIcon icon={faBagShopping} className="mr-3" />LogOut</li>
                                    </ul>
-                              </div>
+                              </div>)
                          }
                     </div>
                     <div className= "cursor-pointer flex flex-col items-center p-2 border-3 border-Crimson rounded-[12px] md:hidden" onClick={toggleMenu}>
