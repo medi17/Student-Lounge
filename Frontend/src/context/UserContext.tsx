@@ -7,8 +7,18 @@ export const UserContextProvider = ({ children }:ChildrenType) => {
 
      const url = "http://localhost:4000"
      const [token, setToken] = useState("")
-
-     return <UserContext.Provider value={{url, token, setToken}}>
+     const [toggleState, setToggleState] = useState(1)
+     const [updating, setUpdating] = useState<boolean>(false)
+     
+     return <UserContext.Provider value={{
+          url,
+          token,
+          setToken,
+          toggleState,
+          setToggleState,
+          updating,
+          setUpdating
+     }}>
           {children}
      </UserContext.Provider>    
 }

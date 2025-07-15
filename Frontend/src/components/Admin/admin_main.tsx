@@ -1,11 +1,19 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Add from './add'
 import Orders from './orders'
 import List from './list'
+import { UserContext } from "../../context/UserContext"
 
 const AdminMain = () => {
 
-     const [toggleState, setToggleState] = useState(1)
+     // User context import
+     const usercontext = useContext(UserContext)
+
+     if (!usercontext) {
+          throw new Error("UserContext is not provided");
+     }
+     const toggleState = usercontext.toggleState
+     const setToggleState = usercontext.setToggleState
 
      const toggleTab = (index:number) => {
           setToggleState(index);
