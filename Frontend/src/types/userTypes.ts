@@ -23,7 +23,11 @@ export type RegisterReducerAction = {
 export type UserContextType = {
      url: string,
      token: string, 
-     setToken: React.Dispatch<React.SetStateAction<string>>
+     setToken: React.Dispatch<React.SetStateAction<string>>,
+     toggleState: number,
+     setToggleState:React.Dispatch<React.SetStateAction<number>>
+     updating: boolean,
+     setUpdating:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export type ChildrenType = {

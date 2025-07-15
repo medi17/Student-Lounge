@@ -1,4 +1,6 @@
 export type AddItemType = {
+     id?: string,
+     image?:string,
      name: string,
      duration: string,
      description: string,
