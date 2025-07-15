@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 type FormElement = HTMLInputElement | HTMLTextAreaElement;
 type FormChangeEvent = React.ChangeEvent<FormElement>;
 
-const form = () => {
+const Form = () => {
 
      const userContext = useContext(UserContext)
      if (!userContext) {
@@ -59,25 +59,29 @@ const form = () => {
                               name = "firstName"
                               value={state.firstName}
                               onChange ={handleChange}
-                              placeholder="First name" />
+                              placeholder="First name"
+                              required />
                          <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                               type="text"
                               name = "lastName"
                               value={state.lastName}
                               onChange ={handleChange}
-                              placeholder="Last name" />
+                              placeholder="Last name" 
+                              required/>
                     </div>
                     <input className="bg-gray-hepta text-gray-tri py-2 px-4 w-full my-3 rounded-3xl focus:outline-none"
                          type="text"
                          name = "email"
                          value={state.email}
                          onChange ={handleChange}
-                         placeholder="Your email" />
+                         placeholder="Your email" 
+                         required/>
                     <textarea className="bg-gray-hepta text-gray-tri py-2 px-4 w-full h-[120px] my-3 rounded-3xl focus:outline-none"
                          name="message"
                          value={state.message}
                          onChange ={handleChange}
-                         placeholder="Your message" />
+                         placeholder="Your message"
+                         required />
                     <button type="submit" className="bg-Crimson text-white font-medium w-full p-2 rounded-3xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white"
                     >Submit</button>
                </form>
@@ -85,4 +89,4 @@ const form = () => {
      )
 }
 
-export default form
+export default Form
