@@ -9,7 +9,7 @@ const MobileCard = () => {
      
      return (
           <div className="bg-white flex justify-center items-center m-5 py-5 px-7 rounded-3xl lg:mx-16">
-               <div className="text-center sm:m-15">
+               <div className="ease-up text-center sm:m-15">
                     <h1 className="text-[45px] sm:text-5xl font-bold my-4">Coming soon.</h1>
                     <p>The mobile version is currently in development.</p>
                     <div className="flex justify-center items-center my-8">                         

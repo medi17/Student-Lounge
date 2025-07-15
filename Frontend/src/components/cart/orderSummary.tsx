@@ -25,7 +25,7 @@ const OrderSummary = () => {
      const token = userContext.token
 
      return (
-          <>
+          <div className="ease-up">
                <h1 className="text-2xl">Order Summary</h1>
                <hr className="my-5 w-full border-dashed" />
                <div className="px-7">
@@ -52,7 +52,7 @@ const OrderSummary = () => {
                          }
                     }}
                >Proceed to Order</button>
-          </>
+          </div>
      )
 }
 

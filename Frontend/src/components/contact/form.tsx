@@ -49,7 +49,7 @@ const Form = () => {
      }
 
      return (
-          <div className="bg-white mt-5 p-5 rounded-3xl max-w-[500px] md:max-w-[300px] lg:max-w-[500px]">
+          <div className="ease-up bg-white mt-5 p-5 rounded-3xl max-w-[500px] md:max-w-[300px] lg:max-w-[500px]">
                <h1 className="text-3xl font-medium">Get in Touch</h1>
                <p className="font-light text-sm my-2">You can reach us anytime</p>
                <form onSubmit={handleSubmit}>
