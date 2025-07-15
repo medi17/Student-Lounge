@@ -6,6 +6,7 @@ import Login from "./pages/login"
 import { createBrowserRouter } from 'react-router-dom'
 import MyOrders from "./pages/myorders"
 import Admin from './pages/admin'
+import Mobile from './pages/mobile'
 
 const App = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const App = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />
+  },
+  {
+    path: '/mobile',
+    element: <Mobile />
   },
   {
     path: '/delivery',
