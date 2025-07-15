@@ -1,6 +1,10 @@
 import mongoose from "mongoose"
+import { customAlphabet } from 'nanoid/non-secure'
+
+const nanoid = customAlphabet('1234567890ABC', 5)
 
 const orderSchema = new mongoose.Schema({
+     _id:{type: String, default:nanoid()},
      userId: { type: String, required: true },
      foods: { type: Array, required:true },
      delivery: { type: Boolean, required: true },
