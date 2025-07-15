@@ -5,9 +5,12 @@ import contactModel from "../models/contactModel.js"
 const transpoter = nodemailer.createTransport({
      service: 'gmail',
      auth: {
-          user: process.env.EMAIL_USER_EMAIL,
+          user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
-     }
+     },
+     tls: {
+          rejectUnauthorized: false
+      }
 })
 
 
@@ -44,7 +47,7 @@ const contactMessages = async (req, res) => {
 
           await transpoter.sendMail(mailFormat)
 
-          res.status(200).json({ message: 'Message sent successfully!' });
+          res.status(200).json({success:true, message: 'Message sent successfully!' });
 
      } catch (error) {
           console.log(error)
@@ -53,8 +56,7 @@ const contactMessages = async (req, res) => {
                const errors = Object.values(error.errors).map(err => err.message);
                return res.status(400).json({ message: 'Validation failed', errors });
           }
-          
-          res.status(500).json({ message: 'Server error please try again later.' });
+          res.status(500).json({success:false, message: 'Server error please try again later.' });
      }
 }
 
