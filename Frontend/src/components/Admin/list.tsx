@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useReducer, useState } from "react"
 import { toast } from 'react-toastify'
 import { itemListType } from "../../types/admintypes"
 import { UserContext } from "../../context/UserContext"
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import { addItemReducer, InitialState } from "../../hooks/additemReducer"
+import { CartContext } from "../../context/CartContext"
 
 type Props = {
      className:string
@@ -17,7 +19,7 @@ const list = ({ className }: Props) => {
      const [list, setList] = useState<itemListType[]>([])
 
      const [loading, setLoading] = useState(true)
-
+     
      // User context import
      const usecontext = useContext(UserContext)
 
@@ -25,7 +27,17 @@ const list = ({ className }: Props) => {
           throw new Error("UserContext is not provided");
      }
      const url = usecontext.url
-     
+     const seToggleState = usecontext.setToggleState
+     const setUpdating = usecontext.setUpdating
+
+     // cart context import
+     const cart = useContext(CartContext)
+
+     if (!cart) {
+          throw new Error("UserContext is not provided");
+     }
+     const foodItems = cart.foodItems
+
      const fetchList = async () => {
           const response = await axios.get(`${url}/api/food/list`)
 
@@ -53,6 +65,24 @@ const list = ({ className }: Props) => {
           
      }
 
+     const [state, ] = useReducer(addItemReducer, InitialState)
+
+     const updateItem = (id:string) => {
+          foodItems.map((food) => {
+               if (food._id === id){
+                    state.name = food.name
+                    state.price = food.price
+                    state.catagory = food.catagory
+                    state.description = food.description
+                    state.duration = food.duration
+                    state.id = food._id
+                    state.image = food.image
+               }
+          })
+          seToggleState(1)
+          setUpdating(true)
+     }
+
      useEffect(() => {
           fetchList();
      }, [])
@@ -61,7 +91,7 @@ const list = ({ className }: Props) => {
           <div className={className}>
                <div className="rounded-[30px] mt-5 overflow-hidden">
                     {
-                         loading ? (
+                         loading || list.length === 0  ? (
                               <Stack spacing={1} >
                                    <Skeleton variant="rounded" height={80} />
                                    <Skeleton variant="rectangular" height={80} />
@@ -93,9 +123,9 @@ const list = ({ className }: Props) => {
                                                        <td className="text-center">{item.name}</td>
                                                        <td className="text-center">{item.catagory}</td>
                                                        <td className="text-center">{item.price}</td>
-                                                       <td className="  text-center text-lg font-bold" >
+                                                       <td className="text-center text-lg font-bold" >
                                                             <div className="flex justify-center items-center gap-8">
-                                                                 <FontAwesomeIcon icon={faPenToSquare} className="text-green-500 cursor-pointer" />
+                                                                 <FontAwesomeIcon onClick={()=>updateItem(item._id)} icon={faPenToSquare} className="text-green-500 cursor-pointer" />
                                                                  <p className="text-Crimson cursor-pointer"
                                                                       onClick={() => removeFoodItem(item._id)}
                                                                  >x</p>
