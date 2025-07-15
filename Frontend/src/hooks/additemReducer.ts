@@ -1,6 +1,8 @@
 import { AddItemType, AddReducerAction } from "../types/admintypes"
 
 export const InitialState = {
+     id: "",
+     image:"",
      name: "",
      duration: "",
      description: "",
