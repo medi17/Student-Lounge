@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
-import { addItemReducer, InitialState } from "../../hooks/additemReducer"
 import { CartContext } from "../../context/CartContext"
 
 type Props = {
@@ -29,6 +28,7 @@ const list = ({ className }: Props) => {
      const url = usecontext.url
      const seToggleState = usecontext.setToggleState
      const setUpdating = usecontext.setUpdating
+     const dispatch = usecontext.dispatch
 
      // cart context import
      const cart = useContext(CartContext)
@@ -65,20 +65,12 @@ const list = ({ className }: Props) => {
           
      }
 
-     const [state, ] = useReducer(addItemReducer, InitialState)
+     const updateItem = (id: string) => {
+          let foodToUpdate = foodItems.find((food) => food._id === id)
 
-     const updateItem = (id:string) => {
-          foodItems.map((food) => {
-               if (food._id === id){
-                    state.name = food.name
-                    state.price = food.price
-                    state.catagory = food.catagory
-                    state.description = food.description
-                    state.duration = food.duration
-                    state.id = food._id
-                    state.image = food.image
-               }
-          })
+          if (foodToUpdate) {
+               dispatch({ type: "UPDATE", payload: foodToUpdate });
+          }
           seToggleState(1)
           setUpdating(true)
      }
