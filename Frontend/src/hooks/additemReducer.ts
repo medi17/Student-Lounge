@@ -18,6 +18,9 @@ export const addItemReducer = (state: AddItemType, action: AddReducerAction): Ad
                     ...state,
                     [action.payload.name]: action.payload.value
                }
+          case "UPDATE":
+               if (!action.payload) return state;
+               return { ...action.payload, id: action.payload.id };
           case "Reset":
                return InitialState
           default:
