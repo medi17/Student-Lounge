@@ -60,7 +60,7 @@ body{
 @keyframes fadeIn {
   0%{
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-30px);
   }
   100%{
     opacity: 1;
@@ -90,13 +90,12 @@ body{
 }
 
 @keyframes drop {
-  0%,
-  28% {
-    transform: translateY(-20px);
+  0%{
+    transform: translateY(-40px);
     opacity: 0.5;
   }
 
-  44% {
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -121,6 +120,50 @@ body{
   100% {
     transform: translateX(0);
   }
+}
+
+.ease-up{
+  animation-duration: 2s;
+  animation-name: easeUp;
+}
+@keyframes easeUp {
+  0%{
+      transform: translateY(20px);
+  }
+  100%{
+    transform: translate(0);
+  }
+}
+
+.from-left{
+  animation-duration: 1.8s;
+  animation-name: leftToRight;
+  animation-timing-function: ease-out;
+}
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+#p-1 {
+  animation-duration: 1.8s;
+}
+#p-2 {
+  animation-duration: 2s;
+}
+
+#p-3 {
+  animation-duration: 2.25s;
+}
+#p-4 {
+  animation-duration: 2.3s;
 }
 
 
