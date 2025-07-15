@@ -7,18 +7,29 @@ export type AddItemType = {
      price: string,
      catagory: string,
 }
-type addPayload = {
+export type ChangeInput = {
+  type: "Change_Input";
+  payload: {
      name: string,
      value: string
-}
+};
+};
+
+export type Reset = {
+  type: "Reset";
+  payload?: undefined;
+};
+
+export type UPDATE = {
+  type: "UPDATE";
+  payload: AddItemType;
+};
+
 export type AddStateType = {
      add: AddStateType[]
 }
 
-export type AddReducerAction = {
-     type: string,
-     payload?: addPayload
-}
+export type AddReducerAction = ChangeInput | Reset | UPDATE
 
 export type itemListType = {
      _id: string,

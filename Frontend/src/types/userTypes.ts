@@ -1,3 +1,4 @@
+import { AddItemType, AddReducerAction } from "./admintypes"
 import { FoodItem } from "./foodTypes"
 
 // User registration reducer types
@@ -27,7 +28,9 @@ export type UserContextType = {
      toggleState: number,
      setToggleState:React.Dispatch<React.SetStateAction<number>>
      updating: boolean,
-     setUpdating:React.Dispatch<React.SetStateAction<boolean>>
+     setUpdating: React.Dispatch<React.SetStateAction<boolean>>
+     state: AddItemType,
+     dispatch:React.ActionDispatch<[action: AddReducerAction]>
 }
 
 export type ChildrenType = {
