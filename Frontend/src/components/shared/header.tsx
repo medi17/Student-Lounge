@@ -73,7 +73,7 @@ const header = ():JSX.Element => {
                          </div>
                     </NavLink>
                     <div className="hidden md:block">
-                         {loading ? (
+                         {loading && token ? (
                               <Skeleton variant="circular" width={35} height={35} />
                          ) : (!token ?
                               <NavLink to="/login">
