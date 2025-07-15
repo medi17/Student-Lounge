@@ -1,8 +1,8 @@
-import { useReducer, useState } from 'react'
+import { useContext, useState } from 'react'
 import UploadImage from '../../assets/admin_images/upload_monochromatic.jpg'
-import { InitialState, addItemReducer } from '../../hooks/additemReducer'
 import axios from "axios"
 import { toast } from 'react-toastify'
+import { UserContext } from '../../context/UserContext'
 
 type Props = {
      className:string
@@ -14,9 +14,19 @@ type FormChangeEvent = React.ChangeEvent<FormElement>;
 const add = ({ className }: Props) => {
 
      const [image, setImage] = useState<File | null>(null)
-     
-     const [state, dispatch] = useReducer(addItemReducer, InitialState)
-     
+
+     // User context import
+     const usecontext = useContext(UserContext)
+
+     if (!usecontext) {
+          throw new Error("UserContext is not provided");
+     }
+     const updating = usecontext.updating
+     const setUpdating = usecontext.setUpdating
+     let url = usecontext.url
+     const state = usecontext.state
+     const dispatch = usecontext.dispatch
+
      const handleChange = (e: FormChangeEvent) => {
           dispatch({ type: "Change_Input", payload: { name: e.target.name, value: e.target.value } })       
      }
@@ -24,7 +34,12 @@ const add = ({ className }: Props) => {
      const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
           event.preventDefault();
 
-          const url = "http://localhost:4000"
+          if (updating) {
+               url += "/api/food/update"     
+          } else {
+               url += "/api/food/add"
+          }
+
           const formData = new FormData();
 
           formData.append("name", state.name)
@@ -32,15 +47,22 @@ const add = ({ className }: Props) => {
           formData.append("description", state.description)
           formData.append("catagory", state.catagory)
           formData.append("price", state.price)
+          if (state.id) {
+               formData.append("id", state.id)
+          }
           if (image) {
                formData.append("image", image);
           }
 
-          const response = await axios.post(`${url}/api/food/add`, formData)
+          const response = await axios.post(url, formData)
+
           if (response.data.success) {
-               dispatch({type: "Reset"})
+               setUpdating(false)
+               dispatch({type:"Reset"})
                setImage(null)
                toast.success(response.data.message)
+               console.log(state);
+               
           }
           else {
                toast.error(response.data.message)
@@ -54,7 +76,12 @@ const add = ({ className }: Props) => {
                     <div className='w-50 md:text-center'>
                          <h2 className='font-medium'>Upload Image</h2>
                          <label htmlFor="image">
-                              <img src={image ? URL.createObjectURL(image) : UploadImage} alt="Upload images here" className="cursor-pointer border-2 border-gray-tetra my-2" />
+                              <img src={ image  ? URL.createObjectURL(image)
+                                             : updating ? `${url}/images/${state.image}` : UploadImage
+                                   }
+                                   alt="Upload images here"
+                                   className="cursor-pointer border-2 border-gray-tetra my-2"
+                              />
                          </label>
                          <input
                               onChange={(e) => {
@@ -62,7 +89,7 @@ const add = ({ className }: Props) => {
                                         setImage(e.target.files[0]);
                                    }
                               }}
-                              type="file" id='image' hidden required />
+                              type="file" id='image' hidden />
                     </div>
                     <div>
                          <div>
@@ -103,7 +130,7 @@ const add = ({ className }: Props) => {
                          </div>
                          <button type='submit'
                               className='bg-Crimson text-white w-50 md:w-full py-2 px-3 mt-10 font-medium rounded-2xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white'
-                         >Add item</button>
+                         >{updating? "Update item": "Add item"}</button>
                     </div>
                </form>
 
