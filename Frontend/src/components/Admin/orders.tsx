@@ -69,7 +69,7 @@ const orders = ({ className }: Props) => {
                                    </div>
                               ) : (
                                    orders.map((order: orderTypes) => (
-                                        <OrdersCard order={order} fetchOrders={fetchOrders} key={order._id}></OrdersCard>
+                                        <OrdersCard order={order} key={order._id}></OrdersCard>
                                    ))
                               ))
                          }

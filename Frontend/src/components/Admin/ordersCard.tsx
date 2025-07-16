@@ -8,18 +8,14 @@ import { UserContext } from "../../context/UserContext";
 type FormElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 type FormChangeEvent = React.ChangeEvent<FormElement>;
 
-const ordersCard = ({ order, fetchOrders }: orderProps) => {
+const ordersCard = ({ order }: orderProps) => {
      const { _id, foods, status, fee, delivery, info } = order
      
      const usecontext = useContext(UserContext)
      const url = usecontext?.url     
 
      const handleChange = async (e: FormChangeEvent, orderId:string) => {
-          const response = await axios.post(url + "/api/order/status", { orderId, status: e.target.value })
-          
-          if (response.data.success) {
-               await fetchOrders();
-          }   
+          await axios.post(url + "/api/order/status", { orderId, status: e.target.value })  
      }
 
      return (
