@@ -9,7 +9,6 @@ A web app for university lounge service
 * [Getting Started](#getting-started)
     * [Prerequisites](#prerequisites)
     * [Installation](#installation)
-    * [Environment Variables](#environment-variables)
 * [Running the Application](#running-the-application)
 * [Deployment](#deployment)
 * [Contact](#contact)
