@@ -11,7 +11,7 @@ type FormChangeEvent = React.ChangeEvent<FormElement>;
 const login = (): JSX.Element => {
 
      const navigate = useNavigate();
-
+     const [isSubmitting, setIsSubmitting] = useState(false);
      const userContext = useContext(UserContext)
      
      if (!userContext) {
@@ -35,7 +35,8 @@ const login = (): JSX.Element => {
                newUrl += "/api/user/register"
           } else {
                newUrl += "/api/user/login"
-          }          
+          } 
+          setIsSubmitting(true);
           const response = await axios.post(newUrl, state)
 
           if (response.data.success) {
@@ -44,6 +45,7 @@ const login = (): JSX.Element => {
                     navigate('/admin');
                } else {
                     navigate('/');
+                    setIsSubmitting(false);
                     setToken(response.data.token)
                     localStorage.setItem("token", response.data.token)                    
                }
@@ -80,7 +82,7 @@ const login = (): JSX.Element => {
                               onChange={handleChange}
                               placeholder={isRegistered? "Your password": "enter your password"}
                          />
-                         <button className="bg-Crimson text-white font-medium py-2 px-4 rounded-3xl cursor-pointer border-2 border-Crimson hover:text-Crimson hover:bg-white" 
+                         <button className={`bg-Crimson text-white font-medium py-2 px-4 rounded-3xl cursor-pointer border-2 border-Crimson ${isSubmitting?'opacity-70 cursor-not-allowed':'hover:text-Crimson hover:bg-white'} `}
                                    type="submit">
                               {isRegistered? "Log in":"Sign up"}</button>
                     </div>
