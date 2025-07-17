@@ -60,6 +60,7 @@ const header = ():JSX.Element => {
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
                     <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/mobile">Mobile</NavLink></li>
+                    <li className={toggleState &&token?"block hover:text-Crimson hover:text-[22px] hover:font-medium":"hidden"}><NavLink to="/myorders">Orders</NavLink></li>
                </ul>
                <div className="flex justify-center items-center gap-4">
                     <NavLink to="/cart">
