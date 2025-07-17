@@ -1,4 +1,4 @@
-import { orderProps } from "../../types/userTypes"
+import { adminOrderProps } from "../../types/userTypes"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios";
@@ -8,14 +8,18 @@ import { UserContext } from "../../context/UserContext";
 type FormElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 type FormChangeEvent = React.ChangeEvent<FormElement>;
 
-const ordersCard = ({ order }: orderProps) => {
+const ordersCard = ({ order, fetchOrders  }: adminOrderProps) => {
      const { _id, foods, status, fee, delivery, info } = order
      
      const usecontext = useContext(UserContext)
      const url = usecontext?.url     
 
      const handleChange = async (e: FormChangeEvent, orderId:string) => {
-          await axios.post(url + "/api/order/status", { orderId, status: e.target.value })  
+          const response = await axios.post(url + "/api/order/status", { orderId, status: e.target.value })
+          
+          if (response.data.success) {
+               await fetchOrders();
+          }   
      }
 
      return (

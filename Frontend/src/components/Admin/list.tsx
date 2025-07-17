@@ -112,11 +112,11 @@ const list = ({ className }: Props) => {
                                                                  />
                                                             </div>
                                                        </td>
-                                                       <td className="text-center">{item.name}</td>
-                                                       <td className="text-center">{item.catagory}</td>
-                                                       <td className="text-center">{item.price}</td>
+                                                       <td className="text-center text-xs sm:text-base">{item.name}</td>
+                                                       <td className="text-center text-xs sm:text-base">{item.catagory}</td>
+                                                       <td className="text-center text-xs sm:text-base">{item.price}</td>
                                                        <td className="text-center text-lg font-bold" >
-                                                            <div className="flex justify-center items-center gap-8">
+                                                            <div className="flex justify-center items-center gap-3 sm:gap-8">
                                                                  <FontAwesomeIcon onClick={()=>updateItem(item._id)} icon={faPenToSquare} className="text-green-500 cursor-pointer" />
                                                                  <p className="text-Crimson cursor-pointer"
                                                                       onClick={() => removeFoodItem(item._id)}

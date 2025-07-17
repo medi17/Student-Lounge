@@ -74,3 +74,7 @@ export type orderTypes = {
 export type orderProps = {
      order: orderTypes
 }
+export type adminOrderProps = {
+     order: orderTypes
+     fetchOrders: () => Promise<void>
+}
