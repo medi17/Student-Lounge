@@ -149,7 +149,7 @@ const delivery_form = () => {
                               required
                          />
                     </div>
-                    <button className={`bg-Crimson text-white font-medium w-[20%] p-2 mt-8 rounded-3xl cursor-pointer 
+                    <button className={`bg-Crimson text-white font-medium sm:w-[20%] p-2 mt-8 rounded-3xl cursor-pointer 
                     border-2 border-Crimson ${isSubmitting?'opacity-70 cursor-not-allowed':'hover:text-Crimson hover:bg-white '}`}
                          type="submit"
                     >{isSubmitting?"Processing...":"Done"}</button>
