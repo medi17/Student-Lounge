@@ -101,10 +101,12 @@ body{
   }
 }
 
-.food-card{
-  animation: swipe linear;
-  animation-timeline: scroll(root);
-  animation-range: entry 0%;
+@media(min-width:760px){
+  .food-card{
+    animation: swipe linear;
+    animation-timeline: scroll(root);
+    animation-range: entry 0%;
+  }
 }
 
 @keyframes swipe{
