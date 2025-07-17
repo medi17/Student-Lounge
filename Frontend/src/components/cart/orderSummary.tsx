@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { toast } from "react-toastify";
 
 const OrderSummary = () => {
 
@@ -48,7 +49,7 @@ const OrderSummary = () => {
                          if (token) {
                               navigator("/delivery")
                          } else {
-                              alert ("Please log in")
+                              toast.error ("Please log in")
                          }
                     }}
                >Proceed to Order</button>

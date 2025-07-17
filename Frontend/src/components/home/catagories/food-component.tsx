@@ -3,6 +3,7 @@ import { FoodProps } from "../../../types/foodTypes"
 import { CartContext } from "../../../context/CartContext"
 import { UserContext } from "../../../context/UserContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const foodComponent = ({ food }: FoodProps): JSX.Element => {
      const {_id, image, name, duration, description, price } = food;
@@ -30,6 +31,7 @@ const foodComponent = ({ food }: FoodProps): JSX.Element => {
                if (response.data.success) {
                     if (!cart[id]) {
                          dispatch({ type: "Add", payload: { id } })
+                         toast.success(response.data.message)
                     }
                } else {
                     console.error("Backend error adding food to cart:", response.data.message);

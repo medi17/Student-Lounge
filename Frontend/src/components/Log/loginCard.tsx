@@ -4,6 +4,7 @@ import { InitialState, userRegisterReducer } from "../../hooks/userRegisterReduc
 import axios from "axios"
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 type FormElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 type FormChangeEvent = React.ChangeEvent<FormElement>;
@@ -51,7 +52,7 @@ const login = (): JSX.Element => {
                }
           }
           else {
-               alert(response.data.message)
+               toast.error(response.data.message)
           }
 
      }
