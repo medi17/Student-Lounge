@@ -1,4 +1,4 @@
-# [Student-Lounge]
+# Student-Lounge
 
 A web app for university lounge service
 
@@ -46,7 +46,7 @@ Main technologies, frameworks, and libraries used.
 Key functionalities of this application. 
 
 * User Authentication (Register, Login, Logout)
-* CRUD operations for [Your Main Resource] (e.g., Posts, Products, Users)
+* CRUD operations for Products
 * Image/File Uploads
 * Responsive Design
 * Error Handling
@@ -71,8 +71,8 @@ Step-by-step guide to clone the repository and install dependencies.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[medi17]/[Student-Lounge].git
-    cd [Student-Lounge]
+    git clone [https://github.com/](https://github.com/)medi17/Student-Lounge.git
+    cd Student-Lounge
     ```
 2.  **Install Backend Dependencies:**
     ```bash
