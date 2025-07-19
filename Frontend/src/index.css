@@ -33,7 +33,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 12px;
     position: fixed;
     height: 40vh;
     right: 0;
@@ -77,7 +77,7 @@ body{
 }
 
 .about-paragraph{
-  animation: drop 3s ease-in-out;
+  animation: drop 1.5s ease-in-out;
   animation-timeline: view();
   animation-fill-mode: forwards;
 }
@@ -125,7 +125,7 @@ body{
 }
 
 .ease-up{
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-name: easeUp;
 }
 @keyframes easeUp {
@@ -155,17 +155,17 @@ body{
 }
 
 #p-1 {
-  animation-duration: 1.8s;
+  animation-duration: 0.8s;
 }
 #p-2 {
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 #p-3 {
-  animation-duration: 2.25s;
+  animation-duration: 1.3s;
 }
 #p-4 {
-  animation-duration: 2.3s;
+  animation-duration: 1.5s;
 }
 
 
