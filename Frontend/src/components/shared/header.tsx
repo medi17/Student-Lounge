@@ -1,4 +1,5 @@
-import { JSX, useState, useContext, useEffect} from "react"
+
+import { JSX, useState, useContext, useEffect } from "react"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { faCartShopping, faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -57,10 +58,10 @@ const header = ():JSX.Element => {
                     <h1 className="text-[24px] font-semibold text-Crimson">LOUNGE</h1>
                </NavLink>
                <ul className={toggleState ?"nav active-nav flex justify-between items-center gap-8 text-[20px]" : "nav flex justify-between items-center gap-8 text-[20px]"} >
-                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/">Home</NavLink></li>
-                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
-                    <li className="hover:text-Crimson hover:text-[22px] hover:font-medium"><NavLink to="/mobile">Mobile</NavLink></li>
-                    <li className={toggleState &&token?"block hover:text-Crimson hover:text-[22px] hover:font-medium":"hidden"}><NavLink to="/myorders">Orders</NavLink></li>
+                    <li className="hover:text-Crimson hover:font-medium"><NavLink to="/">Home</NavLink></li>
+                    <li className="hover:text-Crimson hover:font-medium"><NavLink to="/contact">Contact</NavLink></li>
+                    <li className="hover:text-Crimson hover:font-medium"><NavLink to="/mobile">Mobile</NavLink></li>
+                    <li className={toggleState &&token?"block hover:text-Crimson hover:font-medium":"hidden"}><NavLink to="/myorders">Orders</NavLink></li>
                </ul>
                <div className="flex justify-center items-center gap-4">
                     <NavLink to="/cart">
