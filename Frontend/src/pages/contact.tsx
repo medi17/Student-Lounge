@@ -4,7 +4,7 @@ import ContactMessage from "../components/contact/Contact_message"
 import { ToastContainer } from 'react-toastify';
 const contact = () => {
      return (
-          <div>
+          <div className="flex flex-col min-h-screen">
                <ToastContainer/>
                <Header />
                <ContactMessage/>

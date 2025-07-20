@@ -43,7 +43,7 @@ const cartCard = () => {
      }, [url, token, dispatch])
 
      return (
-          <div className={isCartEmpty === true ? "bg-white shadow-2xl rounded-[30px] py-10 px-6 mx-5 min-w-[260px] md:px-7 md:h-[300px] md:min-w-[312px] lg:mx-16 " :  "bg-white shadow-2xl rounded-[30px] py-5 px-6 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16 md:h-[490px] overflow-hidden"}>
+          <div className={isCartEmpty === true ? "flex-grow bg-white shadow-2xl rounded-[30px] py-10 px-6 mx-5 min-w-[260px] md:px-7 md:h-[300px] md:min-w-[312px] lg:mx-16 " :  "bg-white flex-grow shadow-2xl rounded-[30px] py-5 px-6 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16 md:h-[490px] overflow-hidden"}>
                <h1 className="text-4xl font-medium">Cart items</h1>
                <div className={isCartEmpty === true ? "": "md:grid md:grid-cols-2 md:place-items-center"}>                    
                     <div className="scroll overflow-y-scroll max-h-[390px]">

@@ -20,7 +20,7 @@ const AdminMain = () => {
      }
 
      return (
-          <div className='m-5 py-7 px-7 bg-white shadow-sm rounded-[30px] z-50 lg:mx-16'>
+          <div className='flex-grow m-5 py-7 px-7 bg-white shadow-sm rounded-[30px] z-50 lg:mx-16'>
                <h1 className='text-[50px] text-Crimson'>Welcome</h1>
                <div className='my-3'>
                     <div className='w-60 md:w-80 flex justify-between '>

@@ -51,7 +51,7 @@ const myorders = () => {
      },[token])
 
      return (
-          <div className={orders.length === 0 ? "bg-white shadow-2xl rounded-[30px] py-10 px-6 mx-5 md:px-7 lg:mx-16 " :  "bg-white shadow-2xl rounded-[30px] py-5 px-6 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16"}>
+          <div className={orders.length === 0 ? "flex-grow bg-white shadow-2xl rounded-[30px] py-10 px-6 mx-5 md:px-7 lg:mx-16 " :  "flex-grow bg-white shadow-2xl rounded-[30px] py-5 px-6 mx-5 min-w-[260px] md:px-7 md:min-w-[312px] lg:mx-16"}>
                <h1 className="text-4xl font-medium">My Orders</h1>
                <div className="mt-7 flex flex-col gap-5 mb-5">
                {loading ? (

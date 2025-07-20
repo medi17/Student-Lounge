@@ -89,7 +89,7 @@ const delivery_form = () => {
      }
 
      return (
-          <div className="bg-white m-5 py-5 px-7 rounded-3xl lg:mx-16">
+          <div className="flex-grow bg-white m-5 py-5 px-7 rounded-3xl lg:mx-16">
                <h1 className="text-3xl font-medium">Delivey Information</h1>
                <p className="font-light text-sm my-2">Fill the form so we can deliver to you.</p>
                <form onSubmit={placeOrder}>

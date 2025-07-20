@@ -7,7 +7,7 @@ import Footer from "../components/shared/footer"
 
 const home = ():JSX.Element => {
      return (
-          <div>
+          <div className="flex flex-col min-h-screen">
                <Header />
                <Hero />
                <Catagories />

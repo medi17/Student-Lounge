@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 const admin = () => {
      return (
-          <div>
+          <div className="flex flex-col min-h-screen">
                <ToastContainer/>
                <AdminHeader />
                <AdminMain />

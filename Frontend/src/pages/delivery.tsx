@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 const delivery = () => {
      return (
-          <div>
+          <div className="flex flex-col min-h-screen">
                <ToastContainer/>
                <Header />
                <DeliveryForm/>

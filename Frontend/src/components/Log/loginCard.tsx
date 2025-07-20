@@ -59,7 +59,7 @@ const login = (): JSX.Element => {
 
 
      return (
-          <form onSubmit={handleSubmit} className="flex justify-center items-center bg-white mx-6 rounded-[30px] shadow-sm md:mx-16 md:p-5 md:h-[450px]">
+          <form onSubmit={handleSubmit} className="flex-grow flex justify-center items-center bg-white mx-6 rounded-[30px] shadow-sm md:mx-16 md:p-5 md:h-[450px]">
                <div className='w-[950px] h-full rounded-[30px] hidden md:block'>
                     <img src={Log}  className='hero w-full h-full rounded-l-[30px] '/>
                </div>

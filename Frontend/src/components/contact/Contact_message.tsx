@@ -4,7 +4,7 @@ import Form from "./form"
 
 const ContactMessage = () => {
      return (
-          <div className="m-5 py-3 px-7 rounded-3xl lg:mx-16 md:flex md:justify-between md:gap-10 lg:gap-20">
+          <div className="flex-grow m-5 py-3 px-7 rounded-3xl lg:mx-16 md:flex md:justify-between md:gap-10 lg:gap-20">
                <div className="pt-5">
                     <div>
                          <h1 id="p-1" className="from-left text-4xl font-medium">Contact Us</h1>

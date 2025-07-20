@@ -4,7 +4,7 @@ import Footer from "../components/shared/footer"
 
 const cart = () => {
      return (
-          <div>
+          <div className="flex flex-col min-h-screen">
                <Header />
                <CartCard />
                <Footer />
